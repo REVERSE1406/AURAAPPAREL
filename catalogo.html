@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura Apparel — Catálogo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="page-catalogo" class="page-inner" data-page="catalogo">
+    <nav id="navbar">
+      <a href="index.html" class="nav-logo" aria-label="Inicio Aura Apparel">
+        <span>AURA</span>
+        <span class="sub">APPAREL</span>
+      </a>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="index.html">HOME</a></li>
+        <li><a class="nav-link" href="about.html">ABOUT</a></li>
+        <li><a class="nav-link" href="experiencia.html">EXPERIENCIA</a></li>
+        <li><a class="nav-link" href="catalogo.html">CATÁLOGO</a></li>
+        <li><a class="nav-link" href="reserva.html">RESERVA</a></li>
+      </ul>
+    </nav>
+
+    <section id="catalogo">
+      <div class="catalogo-header fade-up">
+        <div class="catalogo-header-left">
+          <h2>Nuestra Colección</h2>
+          <p class="catalogo-sub">Piezas seleccionadas · Showroom bajo cita · Envíos a todo Ecuador</p>
+        </div>
+        <div class="catalogo-header-right">
+          <p>Reserva tu visita y encuentra<br />lo que te hace deslumbrar.</p>
+          <p style="margin-top: 14px"><a href="reserva.html">Agendar cita</a></p>
+        </div>
+      </div>
+
+      <div class="cat-filters" id="catFilters" aria-label="Filtros de catálogo">
+        <button type="button" class="cat-filter-btn is-active" data-filter="all" aria-pressed="true">Todo</button>
+        <button type="button" class="cat-filter-btn" data-filter="vestidos" aria-pressed="false">Vestidos</button>
+        <button type="button" class="cat-filter-btn" data-filter="carteras" aria-pressed="false">Carteras</button>
+        <button type="button" class="cat-filter-btn" data-filter="conjuntos" aria-pressed="false">Conjuntos</button>
+        <button type="button" class="cat-filter-btn" data-filter="tops" aria-pressed="false">Tops</button>
+        <button type="button" class="cat-filter-btn" data-filter="pantalones" aria-pressed="false">Pantalones</button>
+      </div>
+
+      <div class="view-toggle">
+        <button type="button" class="view-btn" id="btnCarrusel" onclick="setView('carrusel')">CARRUSEL</button>
+        <span class="view-sep">|</span>
+        <button type="button" class="view-btn active" id="btnGrilla" onclick="setView('grilla')">GRILLA</button>
+      </div>
+
+      <div class="cat-grid active" id="catGrid">
+        <a
+          class="cat-grid-item span-rows-5 cat-has-video"
+          data-cat="vestidos"
+          href="producto.html?id=vestido-verde-esmeralda"
+          aria-label="Ver Vestido Verde Esmeralda"
+        >
+          <img src="heather.jpg" alt="Vestido verde" />
+          <div class="video-badge" aria-hidden="true">
+            <svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8" /></svg>
+          </div>
+          <div class="item-hover">
+            <h4>Vestido Verde Esmeralda</h4>
+            <span>$60</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item span-rows-3"
+          data-cat="vestidos"
+          href="producto.html?id=vestido-plateado-lentejuelas"
+          aria-label="Ver Vestido Plateado con Lentejuelas"
+        >
+          <img src="heather5.jpg" alt="Vestido plateado" style="object-position: center top" />
+          <div class="item-hover">
+            <h4>Vestido Plateado<br />con Lentejuelas</h4>
+            <span>$60</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item"
+          data-cat="vestidos"
+          href="producto.html?id=vestido-rosado-plisado"
+          aria-label="Ver Vestido Rosado Plisado"
+        >
+          <img src="heather2.jpg" alt="Vestido rosado" />
+          <div class="item-hover">
+            <h4>Vestido Rosado Plisado</h4>
+            <span>$55</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item span-rows-5"
+          data-cat="carteras"
+          href="producto.html?id=cartera-cadena"
+          aria-label="Ver Cartera Cadena"
+        >
+          <img src="heather4.jpg" alt="Cartera" style="object-position: center" />
+          <div class="item-hover">
+            <h4>Cartera Cadena</h4>
+            <span>$45</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item span-rows-3"
+          data-cat="conjuntos"
+          href="producto.html?id=traje-azul-marino"
+          aria-label="Ver Traje Azul Marino"
+        >
+          <img src="heather1.jpg" alt="Traje azul" />
+          <div class="item-hover">
+            <h4>Traje Azul Marino</h4>
+            <span>$80</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item"
+          data-cat="vestidos"
+          href="producto.html?id=vestido-teal-plisado"
+          aria-label="Ver Vestido Teal Plisado"
+        >
+          <img src="heather3.jpg" alt="Vestido teal" />
+          <div class="item-hover">
+            <h4>Vestido Teal Plisado</h4>
+            <span>$65</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item"
+          data-cat="vestidos"
+          href="producto.html?id=vestido-gris-encaje"
+          aria-label="Ver Vestido Gris Encaje"
+        >
+          <img src="modelo2.jpg" alt="Vestido gris" style="object-position: center" />
+          <div class="item-hover">
+            <h4>Vestido Gris Encaje</h4>
+            <span>$70</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item"
+          data-cat="vestidos"
+          href="producto.html?id=vestido-falda-corta-cafe"
+          aria-label="Ver Vestido de Falda Corta Café"
+        >
+          <img src="modelo1.jpg" alt="Vestido café corto" />
+          <div class="item-hover">
+            <h4>Vestido de Falda<br />Corta Café</h4>
+            <span>$60</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item span-rows-3"
+          data-cat="conjuntos"
+          href="producto.html?id=conjunto-lentejuelas"
+          aria-label="Ver Conjunto Lentejuelas"
+        >
+          <img src="marlucas.jpg" alt="Conjunto lentejuelas" style="object-position: right" />
+          <div class="item-hover">
+            <h4>Conjunto Lentejuelas</h4>
+            <span>$75</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item"
+          data-cat="vestidos"
+          href="producto.html?id=vestido-plisado-plateado"
+          aria-label="Ver Vestido Plisado Plateado"
+        >
+          <img src="modelo2.jpg" alt="Vestido plisado plateado" />
+          <div class="item-hover">
+            <h4>Vestido Plisado Plateado</h4>
+            <span>$45</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item span-cols-2 span-rows-5"
+          data-cat="conjuntos"
+          href="producto.html?id=conjunto-azul-noche"
+          aria-label="Ver Conjunto Azul Noche"
+        >
+          <img src="modelo1.jpg" alt="Conjunto azul" style="height: 100%; object-fit: cover" />
+          <div class="item-hover">
+            <h4>Conjunto Azul Noche</h4>
+            <span>$90</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item span-rows-3"
+          data-cat="tops"
+          href="producto.html?id=top-azul-tejido"
+          aria-label="Ver Top Azul Tejido"
+        >
+          <img src="modelo2.jpg" alt="Top azul tejido" style="object-position: center" />
+          <div class="item-hover">
+            <h4>Top Azul Tejido</h4>
+            <span>$35</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item"
+          data-cat="vestidos"
+          href="producto.html?id=vestido-crema-casual"
+          aria-label="Ver Vestido Crema Casual"
+        >
+          <img src="modelo1.jpg" alt="Vestido crema" />
+          <div class="item-hover">
+            <h4>Vestido Crema Casual</h4>
+            <span>$50</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item span-rows-5"
+          data-cat="pantalones"
+          href="producto.html?id=pantalon-camel"
+          aria-label="Ver Pantalón Camel"
+        >
+          <img src="modelo3.jpeg" alt="Pantalón camel" style="object-position: center bottom" />
+          <div class="item-hover">
+            <h4>Pantalón Camel</h4>
+            <span>$55</span>
+          </div>
+        </a>
+        <a
+          class="cat-grid-item"
+          data-cat="conjuntos"
+          href="producto.html?id=conjunto-blusa-falda"
+          aria-label="Ver Conjunto Blusa + Falda"
+        >
+          <img src="heather1.jpg" alt="Blusa blanca" style="object-position: center top" />
+          <div class="item-hover">
+            <h4>Conjunto Blusa + Falda</h4>
+            <span>$65</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="cat-carousel" id="catCarousel">
+        <div class="carousel-wrap">
+          <div class="carousel-track" id="carouselTrack">
+            <a
+              class="carousel-slide"
+              href="producto.html?id=vestido-plateado-lentejuelas"
+              aria-label="Ver Vestido Plateado con Lentejuelas"
+            >
+              <img src="heather.jpg" alt="Vestido Plateado" style="object-position: top" />
+              <div class="slide-info">
+                <h4>Vestido Plateado con Lentejuelas</h4>
+                <span>$60</span>
+              </div>
+            </a>
+            <a
+              class="carousel-slide"
+              href="producto.html?id=vestido-plisado-plateado"
+              aria-label="Ver Vestido Plisado Plateado"
+            >
+              <img src="modelo2.jpg" alt="Vestido Plisado Plateado" />
+              <div class="slide-info">
+                <h4>Vestido Plisado Plateado</h4>
+                <span>$45</span>
+              </div>
+            </a>
+            <a class="carousel-slide" href="producto.html?id=vestido-az-shoulder" aria-label="Ver Vestido AZ Shoulder">
+              <img src="modelo3.jpeg" alt="Vestido AZ Shoulder" style="object-position: right top" />
+              <div class="slide-info">
+                <h4>Vestido AZ Shoulder</h4>
+                <span>$60</span>
+              </div>
+            </a>
+            <a
+              class="carousel-slide"
+              href="producto.html?id=vestido-verde-esmeralda"
+              aria-label="Ver Vestido Verde Esmeralda"
+            >
+              <img src="marlucas.jpg" alt="Vestido Verde" style="object-position: center top" />
+              <div class="slide-info">
+                <h4>Vestido Verde Esmeralda</h4>
+                <span>$60</span>
+              </div>
+            </a>
+            <a class="carousel-slide" href="producto.html?id=traje-azul-marino" aria-label="Ver Traje Azul Marino">
+              <img src="heather3.jpg" alt="Traje Azul" />
+              <div class="slide-info">
+                <h4>Traje Azul Marino</h4>
+                <span>$80</span>
+              </div>
+            </a>
+          </div>
+          <button type="button" class="carousel-btn prev" onclick="moveCarousel(-1)" aria-label="Anterior">
+            &#8249;
+          </button>
+          <button type="button" class="carousel-btn next" onclick="moveCarousel(1)" aria-label="Siguiente">
+            &#8250;
+          </button>
+        </div>
+      </div>
+
+      <div class="cta-reserve fade-up">
+        <a class="btn-red" href="reserva.html">Reserva ahora</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-row-top">
+        <ul class="footer-nav">
+          <li><a href="experiencia.html">Sobre la experiencia.</a></li>
+          <li><a href="catalogo.html">Catalogo.</a></li>
+          <li><a href="reserva.html">Agenda tu cita.</a></li>
+          <li><a href="#" data-social="whatsapp">Contactanos.</a></li>
+        </ul>
+        <div class="footer-social-column">
+          <div class="footer-rule" aria-hidden="true"></div>
+          <div class="footer-socials">
+            <a class="footer-social" href="#" data-social="instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a class="footer-social" href="#" data-social="whatsapp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+            </a>
+            <a class="footer-social" href="#" data-social="tiktok" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.22 8.22 0 004.84 1.56V6.84a4.85 4.85 0 01-1.07-.15z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-row-spacer" aria-hidden="true"></div>
+      </div>
+      <div class="footer-big-wrap">
+        <p class="footer-big">AURA</p>
+      </div>
+      <p class="footer-copy">© Aura Apparel EC</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

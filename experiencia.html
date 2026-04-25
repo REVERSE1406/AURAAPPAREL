@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura Apparel — Experiencia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="page-experiencia" class="page-experiencia" data-page="experiencia">
+    <nav id="navbar">
+      <a href="index.html" class="nav-logo" aria-label="Inicio Aura Apparel">
+        <span>AURA</span>
+        <span class="sub">APPAREL</span>
+      </a>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="index.html">HOME</a></li>
+        <li><a class="nav-link" href="about.html">ABOUT</a></li>
+        <li><a class="nav-link" href="experiencia.html">EXPERIENCIA</a></li>
+        <li><a class="nav-link" href="catalogo.html">CATÁLOGO</a></li>
+        <li><a class="nav-link" href="reserva.html">RESERVA</a></li>
+      </ul>
+    </nav>
+
+    <section id="landing">
+      <div class="hero-grid">
+        <div class="hero-img-wrap">
+          <img src="heather1.jpg" alt="Aura Apparel" />
+          <span class="hero-badge">SHOWROOM</span>
+        </div>
+        <div class="hero-img-wrap">
+          <img src="marlucas.jpg" alt="Aura Apparel" style="object-position: center" />
+        </div>
+        <div class="hero-img-wrap">
+          <img src="heather3.jpg" alt="Aura Apparel" style="object-position: right center" />
+          <span class="hero-badge-tr">SHOWROOM</span>
+        </div>
+      </div>
+      <div class="hero-title" id="heroTitleExp" data-parallax-title>
+        <h1>AURA</h1>
+        <h2>APPAREL</h2>
+      </div>
+      <a
+        class="btn-red"
+        href="#exp-content"
+        id="btnLaExperiencia"
+        style="position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); z-index: 25"
+        >LA EXPERIENCIA</a
+      >
+    </section>
+
+    <section id="experiencia">
+      <div id="exp-content" class="exp-interactive">
+        <div class="exp-tab-bar" role="tablist" aria-label="Secciones de experiencia">
+          <button type="button" class="exp-trigger" data-panel="manifiesto" id="tab-manifiesto">
+            Manifiesto Aura<sup>(1)</sup>
+          </button>
+          <span class="exp-sep">·</span>
+          <button type="button" class="exp-trigger" data-panel="faq" id="tab-faq">
+            Preguntas Frecuentes<sup>(2)</sup>
+          </button>
+          <span class="exp-sep">·</span>
+          <button type="button" class="exp-trigger" data-panel="showroom" id="tab-showroom">
+            Showroom<sup>(3)</sup>
+          </button>
+          <span class="exp-sep">·</span>
+          <button type="button" class="exp-trigger" data-panel="marcas" id="tab-marcas">
+            Nuestras Marcas<sup>(4)</sup>
+          </button>
+        </div>
+
+        <div class="exp-stage" id="expStage">
+          <div class="exp-panel" id="expPanelManifiesto">
+            <div class="manifiesto-grid">
+              <div class="manifiesto-text">
+                <p data-reveal>
+                  Aquí no vienes solo a elegir un vestido.<br />Vienes a encontrar cómo quieres sentirte.
+                </p>
+                <p data-reveal>Creemos en los momentos que importan.<br />En los detalles que no se olvidan.</p>
+                <p data-reveal>En esa sensación de verte al espejo y saber que es el indicado.</p>
+                <p data-reveal>
+                  Cada prenda está pensada para acompañarte en algo más grande: una noche, una historia, una versión de
+                  ti que merece ser vista.
+                </p>
+                <p data-reveal>Desde lo especial hasta lo cotidiano, lo que eliges usar también habla por ti.</p>
+                <p data-reveal>Y aquí, todo está hecho para que hable bien.</p>
+              </div>
+              <div class="manifiesto-imgs">
+                <img src="heather.jpg" alt="Manifiesto 1" style="object-position: top" />
+                <img src="marlucas.jpg" alt="Manifiesto 2" style="object-position: center" />
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-panel" id="expPanelFaq">
+            <div class="faq-list">
+              <div class="faq-item faq-static">
+                <div class="faq-header">
+                  <h4>¿Cómo funciona el showroom bajo cita?</h4>
+                  <span class="faq-toggle" aria-hidden="true">&#8964;</span>
+                </div>
+                <div class="faq-body">
+                  <p>
+                    Nuestro showroom funciona exclusivamente con citas previas para brindarte atención personalizada.
+                    Puedes agendar tu cita a través de nuestra página web o WhatsApp, eligiendo el día y hora que mejor
+                    te convenga.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item faq-static">
+                <div class="faq-header">
+                  <h4>¿Realizan envíos a todo Ecuador?</h4>
+                  <span class="faq-toggle" aria-hidden="true">&#8964;</span>
+                </div>
+                <div class="faq-body">
+                  <p>
+                    Sí, realizamos envíos a todo el Ecuador. Los tiempos de entrega varían según la ciudad. Para más
+                    información sobre costos y tiempos de envío, contáctanos por WhatsApp.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item faq-static">
+                <div class="faq-header">
+                  <h4>¿Qué marcas manejan en el showroom?</h4>
+                  <span class="faq-toggle" aria-hidden="true">&#8964;</span>
+                </div>
+                <div class="faq-body">
+                  <p>
+                    Trabajamos con marcas americanas reconocidas como Tahari, Calvin Klein, Karl Lagerfeld y Zara, entre
+                    otras. Constantemente renovamos nuestro inventario para traerte las mejores opciones.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item faq-static">
+                <div class="faq-header">
+                  <h4>¿Puedo ver el catálogo antes de mi cita?</h4>
+                  <span class="faq-toggle" aria-hidden="true">&#8964;</span>
+                </div>
+                <div class="faq-body">
+                  <p>
+                    ¡Claro! Puedes explorar nuestro catálogo en línea para tener una idea de los estilos disponibles.
+                    Sin embargo, en el showroom siempre encontrarás prendas exclusivas que no están en el catálogo
+                    digital.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-panel" id="expPanelMarcas">
+            <div class="marcas-showcase">
+              <header class="marcas-intro" data-reveal>
+                <span class="marcas-kicker">Selección curada</span>
+                <h3 class="marcas-heading">Nuestras marcas</h3>
+                <p class="marcas-lead">Firmas reconocidas y piezas auténticas. Toca una marca para ver el foco.</p>
+              </header>
+              <div class="marcas-layout">
+                <div class="marcas-tiles" id="marcasTiles" role="tablist" aria-label="Marcas">
+                  <button
+                    type="button"
+                    class="marca-tile is-active"
+                    role="tab"
+                    aria-selected="true"
+                    data-marca="Tahari"
+                    data-tag="Elegancia contemporánea"
+                    data-logo="taharimarca.png"
+                    data-focus="30% 15%"
+                  >
+                    Tahari
+                  </button>
+                  <button
+                    type="button"
+                    class="marca-tile"
+                    role="tab"
+                    aria-selected="false"
+                    data-marca="Calvin Klein"
+                    data-tag="Esencia urbana"
+                    data-logo="calvinklein.png"
+                    data-focus="50% 25%"
+                  >
+                    Calvin Klein
+                  </button>
+                  <button
+                    type="button"
+                    class="marca-tile"
+                    role="tab"
+                    aria-selected="false"
+                    data-marca="Karl Lagerfeld"
+                    data-tag="Iconos con actitud"
+                    data-logo="karllager.png"
+                    data-focus="70% 20%"
+                  >
+                    Karl Lagerfeld
+                  </button>
+                  <button
+                    type="button"
+                    class="marca-tile"
+                    role="tab"
+                    aria-selected="false"
+                    data-marca="Zara"
+                    data-tag="Tendencia europea"
+                    data-logo="zaramarca.png"
+                    data-focus="40% 40%"
+                  >
+                    Zara
+                  </button>
+                  <button
+                    type="button"
+                    class="marca-tile marca-tile-muted"
+                    role="tab"
+                    aria-selected="false"
+                    data-marca="Y otras firmas"
+                    data-tag="Inventario en rotación"
+                    data-logo=""
+                    data-focus="55% 35%"
+                  >
+                    Michael Kors · DKNY · Más
+                  </button>
+                </div>
+                <div class="marcas-visual-wrap">
+                  <div class="marcas-frame">
+                    <img id="marcasHeroImg" class="marcas-hero-img" src="taharimarca.png" alt="Showroom Aura Apparel" />
+                    <div class="marcas-caption" id="marcasCaption">
+                      <span class="marcas-caption-name">Tahari</span>
+                      <span class="marcas-caption-tag">Elegancia contemporánea</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="showroomFullscreen" class="showroom-fullscreen" aria-hidden="true">
+      <button type="button" class="showroom-fs-close" id="showroomClose" aria-label="Cerrar tour del showroom">
+        Cerrar
+      </button>
+      <p class="showroom-fs-hint">Desliza o usa las flechas · <kbd>Esc</kbd> para salir</p>
+      <button type="button" class="showroom-fs-nav prev" id="showroomPrev" aria-label="Anterior">‹</button>
+      <button type="button" class="showroom-fs-nav next" id="showroomNext" aria-label="Siguiente">›</button>
+      <div class="showroom-stage" aria-hidden="true">
+        <img
+          class="showroom-slide is-on"
+          data-caption="Vestido plateado con lentejuelas · look noche"
+          src="heather.jpg"
+          alt=""
+          style="object-position: top center"
+        />
+        <img
+          class="showroom-slide"
+          data-caption="Interior boutique · percheros y luz natural"
+          src="marlucas.jpg"
+          alt=""
+          style="object-position: center"
+        />
+        <img
+          class="showroom-slide"
+          data-caption="Zona de atención personalizada bajo cita"
+          src="heather3.jpg"
+          alt=""
+          style="object-position: right 20% center"
+        />
+        <img
+          class="showroom-slide"
+          data-caption="Detalle de texturas · marcas americanas"
+          src="heather2.jpg"
+          alt=""
+          style="object-position: left 30% top"
+        />
+      </div>
+      <div class="showroom-caption">
+        <h2>Showroom</h2>
+        <p class="showroom-caption-line" id="showroomCaptionLine">Vestido plateado con lentejuelas · look noche</p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-row-top">
+        <ul class="footer-nav">
+          <li><a href="experiencia.html">Sobre la experiencia.</a></li>
+          <li><a href="catalogo.html">Catalogo.</a></li>
+          <li><a href="reserva.html">Agenda tu cita.</a></li>
+          <li><a href="#" data-social="whatsapp">Contactanos.</a></li>
+        </ul>
+        <div class="footer-social-column">
+          <div class="footer-rule" aria-hidden="true"></div>
+          <div class="footer-socials">
+            <a class="footer-social" href="#" data-social="instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a class="footer-social" href="#" data-social="whatsapp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+            </a>
+            <a class="footer-social" href="#" data-social="tiktok" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.22 8.22 0 004.84 1.56V6.84a4.85 4.85 0 01-1.07-.15z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-row-spacer" aria-hidden="true"></div>
+      </div>
+      <div class="footer-big-wrap">
+        <p class="footer-big">AURA</p>
+      </div>
+      <p class="footer-copy">© Aura Apparel EC</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
