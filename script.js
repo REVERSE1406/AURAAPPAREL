@@ -505,16 +505,433 @@
     }
   };
 
-  var carouselIdx = 0;
-  window.moveCarousel = function (dir) {
-    var track = document.getElementById('carouselTrack');
-    var slides = document.querySelectorAll('.carousel-slide');
-    if (!track || !slides.length) return;
-    carouselIdx = (carouselIdx + dir + slides.length) % slides.length;
-    var perView = window.innerWidth <= 900 ? 1 : 3;
-    var pct = 100 / perView;
-    track.style.transform = 'translateX(-' + carouselIdx * pct + '%)';
+  /* ─── IMPROVED CAROUSEL ─── */
+  var carouselState = {
+    track: null,
+    slides: [],
+    dots: [],
+    currentIndex: 0,
+    autoplayTimer: null,
+    touchStartX: 0,
+    touchEndX: 0,
+    isDragging: false
   };
+
+  function initImprovedCarousel() {
+    var track = document.getElementById('carouselTrack');
+    var dotsContainer = document.getElementById('carouselDots');
+    var prevBtn = document.getElementById('carouselPrev');
+    var nextBtn = document.getElementById('carouselNext');
+    
+    if (!track) return;
+    
+    carouselState.track = track;
+    carouselState.slides = Array.from(track.querySelectorAll('.carousel-slide'));
+    
+    if (!carouselState.slides.length) return;
+    
+    // Create dots
+    if (dotsContainer) {
+      carouselState.slides.forEach(function(_, i) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Ir a slide ' + (i + 1));
+        dot.addEventListener('click', function() {
+          goToSlide(i);
+        });
+        dotsContainer.appendChild(dot);
+        carouselState.dots.push(dot);
+      });
+    }
+    
+    // Button events
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        moveCarousel(-1);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        moveCarousel(1);
+      });
+    }
+    
+    // Touch/swipe support
+    track.addEventListener('touchstart', handleTouchStart, { passive: true });
+    track.addEventListener('touchmove', handleTouchMove, { passive: true });
+    track.addEventListener('touchend', handleTouchEnd);
+    
+    // Keyboard navigation
+    track.setAttribute('tabindex', '0');
+    track.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        moveCarousel(-1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        moveCarousel(1);
+      }
+    });
+    
+    // Auto-play
+    startAutoplay();
+    
+    // Pause on hover
+    track.addEventListener('mouseenter', stopAutoplay);
+    track.addEventListener('mouseleave', startAutoplay);
+  }
+  
+  function handleTouchStart(e) {
+    carouselState.touchStartX = e.changedTouches[0].screenX;
+    carouselState.isDragging = true;
+    stopAutoplay();
+  }
+  
+  function handleTouchMove(e) {
+    if (!carouselState.isDragging) return;
+    carouselState.touchEndX = e.changedTouches[0].screenX;
+  }
+  
+  function handleTouchEnd() {
+    if (!carouselState.isDragging) return;
+    carouselState.isDragging = false;
+    
+    var diff = carouselState.touchStartX - carouselState.touchEndX;
+    var threshold = 50;
+    
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        moveCarousel(1);
+      } else {
+        moveCarousel(-1);
+      }
+    }
+    
+    startAutoplay();
+  }
+  
+  function goToSlide(index) {
+    if (!carouselState.track || !carouselState.slides.length) return;
+    
+    var slidesCount = carouselState.slides.length;
+    carouselState.currentIndex = ((index % slidesCount) + slidesCount) % slidesCount;
+    
+    var slideWidth = carouselState.slides[0].offsetWidth + 4; // 4px gap
+    carouselState.track.scrollTo({
+      left: carouselState.currentIndex * slideWidth,
+      behavior: 'smooth'
+    });
+    
+    updateDots();
+  }
+  
+  window.moveCarousel = function(dir) {
+    goToSlide(carouselState.currentIndex + dir);
+  };
+  
+  function updateDots() {
+    carouselState.dots.forEach(function(dot, i) {
+      dot.classList.toggle('is-active', i === carouselState.currentIndex);
+    });
+  }
+  
+  function startAutoplay() {
+    stopAutoplay();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    carouselState.autoplayTimer = setInterval(function() {
+      moveCarousel(1);
+    }, 5000);
+  }
+  
+  function stopAutoplay() {
+    if (carouselState.autoplayTimer) {
+      clearInterval(carouselState.autoplayTimer);
+      carouselState.autoplayTimer = null;
+    }
+  }
+
+  /* ─── SELECTION & CART SYSTEM ─── */
+  var selectedItems = [];
+  
+  function loadSelections() {
+    try {
+      var saved = localStorage.getItem('aura_selections');
+      if (saved) {
+        selectedItems = JSON.parse(saved);
+        syncSelectionsToUI();
+      }
+    } catch (e) {
+      selectedItems = [];
+    }
+  }
+  
+  function saveSelections() {
+    try {
+      localStorage.setItem('aura_selections', JSON.stringify(selectedItems));
+    } catch (e) {}
+  }
+  
+  function syncSelectionsToUI() {
+    selectedItems.forEach(function(item) {
+      var elements = document.querySelectorAll('[data-id="' + item.id + '"]');
+      elements.forEach(function(el) {
+        el.classList.add('is-selected');
+      });
+    });
+    updateCart();
+  }
+  
+  window.toggleSelection = function(element) {
+    if (!element) return;
+    
+    var id = element.getAttribute('data-id');
+    var name = element.getAttribute('data-name');
+    var price = element.getAttribute('data-price');
+    var img = element.getAttribute('data-img');
+    
+    if (!id) return;
+    
+    var index = selectedItems.findIndex(function(item) {
+      return item.id === id;
+    });
+    
+    if (index > -1) {
+      // Remove from selection
+      selectedItems.splice(index, 1);
+      document.querySelectorAll('[data-id="' + id + '"]').forEach(function(el) {
+        el.classList.remove('is-selected');
+      });
+    } else {
+      // Add to selection
+      selectedItems.push({ id: id, name: name, price: price, img: img });
+      document.querySelectorAll('[data-id="' + id + '"]').forEach(function(el) {
+        el.classList.add('is-selected');
+      });
+    }
+    
+    saveSelections();
+    updateCart();
+    
+    // Pulse animation on cart
+    var cartToggle = document.getElementById('cartToggle');
+    if (cartToggle && selectedItems.length > 0) {
+      cartToggle.style.transform = 'scale(1.15)';
+      setTimeout(function() {
+        cartToggle.style.transform = '';
+      }, 200);
+    }
+  };
+  
+  function updateCart() {
+    var countEl = document.getElementById('cartCount');
+    var itemsEl = document.getElementById('cartItems');
+    var whatsappBtn = document.getElementById('btnWhatsApp');
+    
+    if (countEl) {
+      countEl.textContent = selectedItems.length;
+      countEl.classList.toggle('has-items', selectedItems.length > 0);
+    }
+    
+    if (whatsappBtn) {
+      whatsappBtn.disabled = selectedItems.length === 0;
+    }
+    
+    if (itemsEl) {
+      if (selectedItems.length === 0) {
+        itemsEl.innerHTML = '<p class="cart-empty">No has seleccionado ninguna pieza aun.</p>';
+      } else {
+        itemsEl.innerHTML = selectedItems.map(function(item) {
+          return '<div class="cart-item" data-cart-id="' + item.id + '">' +
+            '<img class="cart-item-img" src="' + item.img + '" alt="' + item.name + '">' +
+            '<div class="cart-item-info">' +
+              '<p class="cart-item-name">' + item.name + '</p>' +
+              '<span class="cart-item-price">' + item.price + '</span>' +
+            '</div>' +
+            '<button type="button" class="cart-item-remove" onclick="removeFromCart(\'' + item.id + '\')" aria-label="Eliminar">' +
+              '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">' +
+                '<line x1="18" y1="6" x2="6" y2="18"></line>' +
+                '<line x1="6" y1="6" x2="18" y2="18"></line>' +
+              '</svg>' +
+            '</button>' +
+          '</div>';
+        }).join('');
+      }
+    }
+  }
+  
+  window.removeFromCart = function(id) {
+    var index = selectedItems.findIndex(function(item) {
+      return item.id === id;
+    });
+    
+    if (index > -1) {
+      selectedItems.splice(index, 1);
+      document.querySelectorAll('[data-id="' + id + '"]').forEach(function(el) {
+        el.classList.remove('is-selected');
+      });
+      saveSelections();
+      updateCart();
+    }
+  };
+  
+  function initCartUI() {
+    var toggle = document.getElementById('cartToggle');
+    var panel = document.getElementById('cartPanel');
+    var closeBtn = document.getElementById('cartClose');
+    var clearBtn = document.getElementById('btnClearAll');
+    var whatsappBtn = document.getElementById('btnWhatsApp');
+    
+    if (toggle && panel) {
+      toggle.addEventListener('click', function() {
+        var isOpen = panel.classList.contains('is-open');
+        panel.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', !isOpen);
+      });
+    }
+    
+    if (closeBtn && panel) {
+      closeBtn.addEventListener('click', function() {
+        panel.classList.remove('is-open');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      });
+    }
+    
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function() {
+        selectedItems.forEach(function(item) {
+          document.querySelectorAll('[data-id="' + item.id + '"]').forEach(function(el) {
+            el.classList.remove('is-selected');
+          });
+        });
+        selectedItems = [];
+        saveSelections();
+        updateCart();
+      });
+    }
+    
+    if (whatsappBtn) {
+      whatsappBtn.addEventListener('click', function() {
+        if (selectedItems.length === 0) return;
+        
+        var msg = 'Hola Aura Apparel,\n\nMe interesan las siguientes piezas:\n\n';
+        selectedItems.forEach(function(item, i) {
+          msg += (i + 1) + '. ' + item.name + ' - ' + item.price + '\n';
+        });
+        msg += '\nMe gustaria recibir mas informacion. Gracias!';
+        
+        var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+        window.open(url, '_blank');
+      });
+    }
+    
+    // Close cart when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!panel || !toggle) return;
+      if (!panel.contains(e.target) && !toggle.contains(e.target)) {
+        panel.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    loadSelections();
+  }
+  
+  // Set stagger animation index for grid items
+  function setGridItemIndices() {
+    var items = document.querySelectorAll('.cat-grid-item');
+    items.forEach(function(item, i) {
+      item.style.setProperty('--item-index', i);
+    });
+  }
+
+  /* ─── ENHANCED SCROLL ANIMATIONS ─── */
+  function initEnhancedScrollAnimations() {
+    var animatedElements = document.querySelectorAll('.scroll-reveal, .scale-reveal, .slide-left, .slide-right');
+    if (!animatedElements.length) return;
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      animatedElements.forEach(function(el) {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
+    
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          // Add stagger delay based on data attribute or default
+          var delay = entry.target.getAttribute('data-delay') || 0;
+          setTimeout(function() {
+            entry.target.classList.add('is-visible');
+          }, parseInt(delay));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animatedElements.forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  /* ─── PARALLAX SCROLL EFFECTS ─── */
+  function initParallaxEffects() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    
+    var parallaxElements = document.querySelectorAll('[data-parallax]');
+    if (!parallaxElements.length) return;
+    
+    var ticking = false;
+    
+    function updateParallax() {
+      var scrollY = window.scrollY;
+      var windowHeight = window.innerHeight;
+      
+      parallaxElements.forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
+        
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          var yPos = (scrollY - el.offsetTop + windowHeight) * speed;
+          el.style.transform = 'translateY(' + yPos + 'px)';
+        }
+      });
+      
+      ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ─── SMOOTH LINK TRANSITIONS ─── */
+  function initSmoothPageTransitions() {
+    var links = document.querySelectorAll('a[href^="index"], a[href^="about"], a[href^="catalogo"], a[href^="experiencia"], a[href^="reserva"], a[href^="producto"]');
+    
+    links.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http')) return;
+        
+        e.preventDefault();
+        document.body.style.opacity = '0';
+        document.body.style.transform = 'translateY(-10px)';
+        document.body.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        
+        setTimeout(function() {
+          window.location.href = href;
+        }, 300);
+      });
+    });
+  }
 
   window.toggleFaq = function (item) {
     if (!item) return;
@@ -1053,6 +1470,9 @@
     initSocialLinks();
     initNavbar();
     initTextReveals();
+    initEnhancedScrollAnimations();
+    initParallaxEffects();
+    initSmoothPageTransitions();
     var page = getPageId();
 
     if (page === 'home') {
@@ -1076,6 +1496,9 @@
       initScrollAnimations();
       initCatalogReveal();
       initCatalogFilters();
+      initImprovedCarousel();
+      initCartUI();
+      setGridItemIndices();
       initFooterParallax();
     }
 
