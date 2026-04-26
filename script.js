@@ -35,149 +35,96 @@
   }
 
   var PRODUCTOS = {
-    'vestido-verde-esmeralda': {
-      id: 'vestido-verde-esmeralda',
-      nombre: 'Vestido Verde Esmeralda',
-      precio: '$60',
-      categoria: 'Vestidos',
-      img: 'heather.jpg',
-      lead: 'Luce sofisticada con un tono joya que ilumina la piel. Ideal para eventos, fotos y noches especiales.',
-      highlights: ['Showroom bajo cita', 'Prueba de fit y caída', 'Asesoría para combinar accesorios'],
+    'verde-esmeralda': {
+      title: 'Verde Esmeralda',
+      price: '$60',
+      image: 'heather.jpg',
+      description: 'Corte satinado con caída fluida, ideal para destacar en eventos de gala nocturnos.',
+      category: 'Vestidos',
     },
-    'vestido-plateado-lentejuelas': {
-      id: 'vestido-plateado-lentejuelas',
-      nombre: 'Vestido Plateado con Lentejuelas',
-      precio: '$60',
-      categoria: 'Vestidos',
-      img: 'heather5.jpg',
-      lead: 'Brilla sin esfuerzo. Lentejuelas y silueta elegante para robar miradas desde que llegas.',
-      highlights: ['Perfecto para fiesta', 'Se ve increíble en cámara', 'Reserva y pruébalo en showroom'],
+    'lentejuelas-noir': {
+      title: 'Lentejuelas Noir',
+      price: '$75',
+      image: 'marlucas.jpg',
+      description: 'Brillo sofisticado en dos piezas que definen la silueta con elegancia y audacia.',
+      category: 'Conjuntos',
     },
-    'vestido-rosado-plisado': {
-      id: 'vestido-rosado-plisado',
-      nombre: 'Vestido Rosado Plisado',
-      precio: '$55',
-      categoria: 'Vestidos',
-      img: 'heather2.jpg',
-      lead: 'Plisado que estiliza y movimiento que se siente ligero. Un clásico romántico, moderno y femenino.',
-      highlights: ['Caída fluida', 'Ideal para día o noche', 'Te ayudamos a elegir accesorios'],
+    'silver-night': {
+      title: 'Silver Night',
+      price: '$60',
+      image: 'heather5.jpg',
+      description: 'Destellos plateados en un diseño de espalda abierta para una presencia inolvidable.',
+      category: 'Noche',
     },
-    'cartera-cadena': {
-      id: 'cartera-cadena',
-      nombre: 'Cartera Cadena',
-      precio: '$45',
-      categoria: 'Carteras',
-      img: 'heather4.jpg',
-      lead: 'El toque final que eleva cualquier look. Minimal, elegante y lista para una salida perfecta.',
-      highlights: ['Detalle de cadena', 'Combina con todo', 'Disponible en showroom'],
+    'rose-velvet': {
+      title: 'Rose Velvet',
+      price: '$85',
+      image: 'modelo1.jpg',
+      description: 'Textura de terciopelo premium en tono rosa viejo, equilibrio perfecto entre dulce y fatal.',
+      category: 'Gala',
     },
-    'traje-azul-marino': {
-      id: 'traje-azul-marino',
-      nombre: 'Traje Azul Marino',
-      precio: '$80',
-      categoria: 'Conjuntos',
-      img: 'heather1.jpg',
-      lead: 'Poder y elegancia en una sola pieza. Ideal para ocasiones donde quieres verte impecable.',
-      highlights: ['Silueta estructurada', 'Versátil', 'Asesoría en showroom'],
+    'midnight-blue': {
+      title: 'Midnight Blue',
+      price: '$70',
+      image: 'modelo2.jpg',
+      description: 'Azul profundo en seda natural. Una pieza clásica que exhala lujo silencioso.',
+      category: 'Noche',
     },
-    'vestido-teal-plisado': {
-      id: 'vestido-teal-plisado',
-      nombre: 'Vestido Teal Plisado',
-      precio: '$65',
-      categoria: 'Vestidos',
-      img: 'heather3.jpg',
-      lead: 'Un color distinto, elegante y con presencia. Plisado para estilizar y moverte con seguridad.',
-      highlights: ['Color protagonista', 'Movimiento fluido', 'Showroom bajo cita'],
+    'gold-satin': {
+      title: 'Gold Satin',
+      price: '$95',
+      image: 'modelo3.jpeg',
+      description: 'El resplandor del oro en un corte sirena que abraza cada curva con delicadeza.',
+      category: 'Luxury',
     },
-    'vestido-gris-encaje': {
-      id: 'vestido-gris-encaje',
-      nombre: 'Vestido Gris Encaje',
-      precio: '$70',
-      categoria: 'Vestidos',
-      img: 'modelo2.jpg',
-      lead: 'Encaje con un aire fino y sofisticado. Perfecto para un evento especial con estilo sutil.',
-      highlights: ['Detalle en encaje', 'Elegancia atemporal', 'Pruébalo antes de comprar'],
+    'pearl-white': {
+      title: 'Pearl White',
+      price: '$65',
+      image: 'heather3.jpg',
+      description: 'Minimalismo puro. Blanco perlado con escote estructurado para un look pulcro y moderno.',
+      category: 'Evento',
     },
-    'vestido-falda-corta-cafe': {
-      id: 'vestido-falda-corta-cafe',
-      nombre: 'Vestido de Falda Corta Café',
-      precio: '$60',
-      categoria: 'Vestidos',
-      img: 'modelo1.jpg',
-      lead: 'Corto, chic y con actitud. Una opción ideal para verte arreglada sin verte “demasiado”.',
-      highlights: ['Look moderno', 'Fácil de combinar', 'Reserva tu cita'],
+    'crimson-red': {
+      title: 'Crimson Red',
+      price: '$80',
+      image: 'heather.jpg',
+      description: 'Rojo carmesí vibrante. Diseñado para ser el centro de atención en cualquier salón.',
+      category: 'Gala',
     },
-    'conjunto-lentejuelas': {
-      id: 'conjunto-lentejuelas',
-      nombre: 'Conjunto Lentejuelas',
-      precio: '$75',
-      categoria: 'Conjuntos',
-      img: 'marlucas.jpg',
-      lead: 'Dos piezas, mil posibilidades. Un statement que brilla y se adapta a tu estilo.',
-      highlights: ['Dos piezas', 'Alto impacto', 'Ideal para fiesta'],
+    'onyx-sparkle': {
+      title: 'Onyx Sparkle',
+      price: '$75',
+      image: 'marlucas.jpg',
+      description: 'Negro absoluto con micro-cristales que simulan un cielo estrellado en movimiento.',
+      category: 'Noche',
     },
-    'vestido-plisado-plateado': {
-      id: 'vestido-plisado-plateado',
-      nombre: 'Vestido Plisado Plateado',
-      precio: '$45',
-      categoria: 'Vestidos',
-      img: 'modelo2.jpg',
-      lead: 'Plisado con brillo sutil: elegante, favorecedor y perfecto para una noche especial.',
-      highlights: ['Brillo sutil', 'Silueta favorecedora', 'Showroom bajo cita'],
+    'champagne-glow': {
+      title: 'Champagne Glow',
+      price: '$110',
+      image: 'heather5.jpg',
+      description: 'Tono champaña con detalles en encaje francés. Exclusividad en cada costura.',
+      category: 'Luxury',
     },
-    'conjunto-azul-noche': {
-      id: 'conjunto-azul-noche',
-      nombre: 'Conjunto Azul Noche',
-      precio: '$90',
-      categoria: 'Conjuntos',
-      img: 'modelo1.jpg',
-      lead: 'Azul profundo, presencia total. Un conjunto que se ve caro y te hace sentir segura.',
-      highlights: ['Tono premium', 'Elegante', 'Pruébalo en showroom'],
+    'violet-dream': {
+      title: 'Violet Dream',
+      price: '$55',
+      image: 'modelo1.jpg',
+      description: 'Gasa ligera en tono violeta pastel, ideal para cócteles al aire libre o eventos de día.',
+      category: 'Evento',
     },
-    'top-azul-tejido': {
-      id: 'top-azul-tejido',
-      nombre: 'Top Azul Tejido',
-      precio: '$35',
-      categoria: 'Tops',
-      img: 'modelo2.jpg',
-      lead: 'Textura tejida y color que resalta. Un básico elevado para armar outfits con intención.',
-      highlights: ['Textura', 'Versátil', 'Ideal para layering'],
+    'forest-green': {
+      title: 'Forest Green',
+      price: '$68',
+      image: 'modelo2.jpg',
+      description: 'Verde bosque profundo en terciopelo elástico para un ajuste cómodo y escultural.',
+      category: 'Noche',
     },
-    'vestido-crema-casual': {
-      id: 'vestido-crema-casual',
-      nombre: 'Vestido Crema Casual',
-      precio: '$50',
-      categoria: 'Vestidos',
-      img: 'modelo1.jpg',
-      lead: 'Crema minimal y elegante. Perfecto para un look limpio, fresco y fácil de combinar.',
-      highlights: ['Minimal', 'Combina con todo', 'Ideal para día'],
-    },
-    'pantalon-camel': {
-      id: 'pantalon-camel',
-      nombre: 'Pantalón Camel',
-      precio: '$55',
-      categoria: 'Pantalones',
-      img: 'modelo3.jpeg',
-      lead: 'Camel: el neutro perfecto. Un pantalón que eleva cualquier top y te estiliza al instante.',
-      highlights: ['Neutro premium', 'Fácil de combinar', 'Look de oficina o salida'],
-    },
-    'conjunto-blusa-falda': {
-      id: 'conjunto-blusa-falda',
-      nombre: 'Conjunto Blusa + Falda',
-      precio: '$65',
-      categoria: 'Conjuntos',
-      img: 'heather1.jpg',
-      lead: 'Femenino y elegante. Un conjunto pensado para verte lista sin complicarte.',
-      highlights: ['Dos piezas', 'Romántico', 'Ideal para eventos'],
-    },
-    'vestido-az-shoulder': {
-      id: 'vestido-az-shoulder',
-      nombre: 'Vestido AZ Shoulder',
-      precio: '$60',
-      categoria: 'Vestidos',
-      img: 'modelo3.jpeg',
-      lead: 'Diseño con personalidad y un fit que marca presencia. Ideal para una noche especial.',
-      highlights: ['Silueta protagonista', 'Perfecto para fiesta', 'Reserva tu cita'],
+    'sky-blue-silk': {
+      title: 'Sky Blue Silk',
+      price: '$90',
+      image: 'modelo3.jpeg',
+      description: 'Seda celestial con una cola sutil que aporta drama y elegancia a tu caminar.',
+      category: 'Gala',
     },
   };
 
@@ -194,7 +141,6 @@
     });
   }
 
-  /** Experiencia: nav oculta en hero rojo; al bajar o al pulsar «La experiencia» solo texto, sin fondo. */
   function initExperienciaNavigation() {
     var nav = document.getElementById('navbar');
     var landing = document.getElementById('landing');
@@ -293,7 +239,6 @@
     if (srcs.length < 2) return;
 
     function tick() {
-      // Rota las 3 imágenes entre sí (mismo efecto en index y experiencia).
       srcs.unshift(srcs.pop());
       wraps.forEach(function (imgEl, i) {
         var next = srcs[i];
@@ -470,18 +415,39 @@
     );
   }
 
+  // ─── ABOUT: CORRECCIÓN DE LA LÍNEA DE TIEMPO ───
+  // ─── ABOUT: CORRECCIÓN DE LA LÍNEA DE TIEMPO ───
   function initTimelineLine() {
-    var tl = document.querySelector('.timeline');
-    var tlLine = document.getElementById('timelineLine');
-    if (!tl || !tlLine) return;
-    window.addEventListener('scroll', function () {
-      var rect = tl.getBoundingClientRect();
-      var viewH = window.innerHeight;
-      if (rect.top < viewH && rect.bottom > 0) {
-        var progress = Math.max(0, Math.min(1, (viewH - rect.top) / (viewH + rect.height)));
-        tlLine.style.height = progress * 100 + '%';
-      }
-    });
+    const line = document.getElementById('timelineLine');
+    const timeline = document.querySelector('.timeline');
+    if (!line || !timeline) return;
+
+    function updateLine() {
+      const items = timeline.querySelectorAll('.timeline-item');
+      if (items.length === 0) return;
+
+      const lastItem = items[items.length - 1];
+      const lastDotInner = lastItem.querySelector('.tl-dot-inner');
+      if (!lastDotInner) return;
+
+      // Calcular centro exacto del punto final
+      const timelineTopDoc = timeline.getBoundingClientRect().top + window.scrollY;
+      const dotTopDoc = lastDotInner.getBoundingClientRect().top + window.scrollY;
+      const stopAtCenterOfDot = dotTopDoc - timelineTopDoc + lastDotInner.offsetHeight / 2;
+
+      // Progreso del scroll
+      const triggerPoint = window.innerHeight / 2;
+      const timelineRect = timeline.getBoundingClientRect();
+      const currentProgress = triggerPoint - timelineRect.top;
+
+      let finalHeight = Math.max(0, Math.min(currentProgress, stopAtCenterOfDot));
+      line.style.height = finalHeight + 'px';
+    }
+
+    window.addEventListener('scroll', updateLine);
+    window.addEventListener('resize', updateLine);
+    // Pequeño timeout inicial para asegurar que las imágenes cargaron y tienen tamaño final
+    setTimeout(updateLine, 100);
   }
 
   window.setView = function (mode) {
@@ -489,23 +455,24 @@
     var carousel = document.getElementById('catCarousel');
     var btnG = document.getElementById('btnGrilla');
     var btnC = document.getElementById('btnCarrusel');
-    if (!grid || !carousel) return;
+
     if (mode === 'grilla') {
+      carousel.classList.remove('active');
       grid.classList.add('active');
       grid.classList.remove('hidden');
-      carousel.classList.remove('active');
-      if (btnG) btnG.classList.add('active');
-      if (btnC) btnC.classList.remove('active');
+      btnG.classList.add('active');
+      btnC.classList.remove('active');
+      window.scrollTo({ top: grid.offsetTop - 100, behavior: 'smooth' });
     } else {
       grid.classList.remove('active');
       grid.classList.add('hidden');
       carousel.classList.add('active');
-      if (btnC) btnC.classList.add('active');
-      if (btnG) btnG.classList.remove('active');
+      btnC.classList.add('active');
+      btnG.classList.remove('active');
+      window.scrollTo({ top: carousel.offsetTop - 100, behavior: 'smooth' });
     }
   };
 
-  /* ─── IMPROVED CAROUSEL ─── */
   var carouselState = {
     track: null,
     slides: [],
@@ -514,7 +481,7 @@
     autoplayTimer: null,
     touchStartX: 0,
     touchEndX: 0,
-    isDragging: false
+    isDragging: false,
   };
 
   function initImprovedCarousel() {
@@ -522,49 +489,45 @@
     var dotsContainer = document.getElementById('carouselDots');
     var prevBtn = document.getElementById('carouselPrev');
     var nextBtn = document.getElementById('carouselNext');
-    
+
     if (!track) return;
-    
+
     carouselState.track = track;
     carouselState.slides = Array.from(track.querySelectorAll('.carousel-slide'));
-    
+
     if (!carouselState.slides.length) return;
-    
-    // Create dots
+
     if (dotsContainer) {
-      carouselState.slides.forEach(function(_, i) {
+      carouselState.slides.forEach(function (_, i) {
         var dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'carousel-dot' + (i === 0 ? ' is-active' : '');
         dot.setAttribute('aria-label', 'Ir a slide ' + (i + 1));
-        dot.addEventListener('click', function() {
+        dot.addEventListener('click', function () {
           goToSlide(i);
         });
         dotsContainer.appendChild(dot);
         carouselState.dots.push(dot);
       });
     }
-    
-    // Button events
+
     if (prevBtn) {
-      prevBtn.addEventListener('click', function() {
+      prevBtn.addEventListener('click', function () {
         moveCarousel(-1);
       });
     }
     if (nextBtn) {
-      nextBtn.addEventListener('click', function() {
+      nextBtn.addEventListener('click', function () {
         moveCarousel(1);
       });
     }
-    
-    // Touch/swipe support
+
     track.addEventListener('touchstart', handleTouchStart, { passive: true });
     track.addEventListener('touchmove', handleTouchMove, { passive: true });
     track.addEventListener('touchend', handleTouchEnd);
-    
-    // Keyboard navigation
+
     track.setAttribute('tabindex', '0');
-    track.addEventListener('keydown', function(e) {
+    track.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
         moveCarousel(-1);
@@ -573,33 +536,31 @@
         moveCarousel(1);
       }
     });
-    
-    // Auto-play
+
     startAutoplay();
-    
-    // Pause on hover
+
     track.addEventListener('mouseenter', stopAutoplay);
     track.addEventListener('mouseleave', startAutoplay);
   }
-  
+
   function handleTouchStart(e) {
     carouselState.touchStartX = e.changedTouches[0].screenX;
     carouselState.isDragging = true;
     stopAutoplay();
   }
-  
+
   function handleTouchMove(e) {
     if (!carouselState.isDragging) return;
     carouselState.touchEndX = e.changedTouches[0].screenX;
   }
-  
+
   function handleTouchEnd() {
     if (!carouselState.isDragging) return;
     carouselState.isDragging = false;
-    
+
     var diff = carouselState.touchStartX - carouselState.touchEndX;
     var threshold = 50;
-    
+
     if (Math.abs(diff) > threshold) {
       if (diff > 0) {
         moveCarousel(1);
@@ -607,43 +568,43 @@
         moveCarousel(-1);
       }
     }
-    
+
     startAutoplay();
   }
-  
+
   function goToSlide(index) {
     if (!carouselState.track || !carouselState.slides.length) return;
-    
+
     var slidesCount = carouselState.slides.length;
     carouselState.currentIndex = ((index % slidesCount) + slidesCount) % slidesCount;
-    
-    var slideWidth = carouselState.slides[0].offsetWidth + 4; // 4px gap
+
+    var slideWidth = carouselState.slides[0].offsetWidth + 4;
     carouselState.track.scrollTo({
       left: carouselState.currentIndex * slideWidth,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
-    
+
     updateDots();
   }
-  
-  window.moveCarousel = function(dir) {
+
+  window.moveCarousel = function (dir) {
     goToSlide(carouselState.currentIndex + dir);
   };
-  
+
   function updateDots() {
-    carouselState.dots.forEach(function(dot, i) {
+    carouselState.dots.forEach(function (dot, i) {
       dot.classList.toggle('is-active', i === carouselState.currentIndex);
     });
   }
-  
+
   function startAutoplay() {
     stopAutoplay();
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    carouselState.autoplayTimer = setInterval(function() {
+    carouselState.autoplayTimer = setInterval(function () {
       moveCarousel(1);
     }, 5000);
   }
-  
+
   function stopAutoplay() {
     if (carouselState.autoplayTimer) {
       clearInterval(carouselState.autoplayTimer);
@@ -651,9 +612,8 @@
     }
   }
 
-  /* ─── SELECTION & CART SYSTEM ─── */
   var selectedItems = [];
-  
+
   function loadSelections() {
     try {
       var saved = localStorage.getItem('aura_selections');
@@ -665,142 +625,155 @@
       selectedItems = [];
     }
   }
-  
+
   function saveSelections() {
     try {
       localStorage.setItem('aura_selections', JSON.stringify(selectedItems));
     } catch (e) {}
   }
-  
+
   function syncSelectionsToUI() {
-    selectedItems.forEach(function(item) {
+    selectedItems.forEach(function (item) {
       var elements = document.querySelectorAll('[data-id="' + item.id + '"]');
-      elements.forEach(function(el) {
+      elements.forEach(function (el) {
         el.classList.add('is-selected');
       });
     });
     updateCart();
   }
-  
-  window.toggleSelection = function(element) {
+
+  window.toggleSelection = function (element) {
     if (!element) return;
-    
+
     var id = element.getAttribute('data-id');
     var name = element.getAttribute('data-name');
     var price = element.getAttribute('data-price');
     var img = element.getAttribute('data-img');
-    
+
     if (!id) return;
-    
-    var index = selectedItems.findIndex(function(item) {
+
+    var index = selectedItems.findIndex(function (item) {
       return item.id === id;
     });
-    
+
     if (index > -1) {
-      // Remove from selection
       selectedItems.splice(index, 1);
-      document.querySelectorAll('[data-id="' + id + '"]').forEach(function(el) {
+      document.querySelectorAll('[data-id="' + id + '"]').forEach(function (el) {
         el.classList.remove('is-selected');
       });
     } else {
-      // Add to selection
       selectedItems.push({ id: id, name: name, price: price, img: img });
-      document.querySelectorAll('[data-id="' + id + '"]').forEach(function(el) {
+      document.querySelectorAll('[data-id="' + id + '"]').forEach(function (el) {
         el.classList.add('is-selected');
       });
     }
-    
+
     saveSelections();
     updateCart();
-    
-    // Pulse animation on cart
+
     var cartToggle = document.getElementById('cartToggle');
     if (cartToggle && selectedItems.length > 0) {
       cartToggle.style.transform = 'scale(1.15)';
-      setTimeout(function() {
+      setTimeout(function () {
         cartToggle.style.transform = '';
       }, 200);
     }
   };
-  
+
   function updateCart() {
     var countEl = document.getElementById('cartCount');
     var itemsEl = document.getElementById('cartItems');
     var whatsappBtn = document.getElementById('btnWhatsApp');
-    
+
     if (countEl) {
       countEl.textContent = selectedItems.length;
       countEl.classList.toggle('has-items', selectedItems.length > 0);
     }
-    
+
     if (whatsappBtn) {
       whatsappBtn.disabled = selectedItems.length === 0;
     }
-    
+
     if (itemsEl) {
       if (selectedItems.length === 0) {
         itemsEl.innerHTML = '<p class="cart-empty">No has seleccionado ninguna pieza aun.</p>';
       } else {
-        itemsEl.innerHTML = selectedItems.map(function(item) {
-          return '<div class="cart-item" data-cart-id="' + item.id + '">' +
-            '<img class="cart-item-img" src="' + item.img + '" alt="' + item.name + '">' +
-            '<div class="cart-item-info">' +
-              '<p class="cart-item-name">' + item.name + '</p>' +
-              '<span class="cart-item-price">' + item.price + '</span>' +
-            '</div>' +
-            '<button type="button" class="cart-item-remove" onclick="removeFromCart(\'' + item.id + '\')" aria-label="Eliminar">' +
+        itemsEl.innerHTML = selectedItems
+          .map(function (item) {
+            return (
+              '<div class="cart-item" data-cart-id="' +
+              item.id +
+              '">' +
+              '<img class="cart-item-img" src="' +
+              item.img +
+              '" alt="' +
+              item.name +
+              '">' +
+              '<div class="cart-item-info">' +
+              '<p class="cart-item-name">' +
+              item.name +
+              '</p>' +
+              '<span class="cart-item-price">' +
+              item.price +
+              '</span>' +
+              '</div>' +
+              '<button type="button" class="cart-item-remove" onclick="removeFromCart(\'' +
+              item.id +
+              '\')" aria-label="Eliminar">' +
               '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">' +
-                '<line x1="18" y1="6" x2="6" y2="18"></line>' +
-                '<line x1="6" y1="6" x2="18" y2="18"></line>' +
+              '<line x1="18" y1="6" x2="6" y2="18"></line>' +
+              '<line x1="6" y1="6" x2="18" y2="18"></line>' +
               '</svg>' +
-            '</button>' +
-          '</div>';
-        }).join('');
+              '</button>' +
+              '</div>'
+            );
+          })
+          .join('');
       }
     }
   }
-  
-  window.removeFromCart = function(id) {
-    var index = selectedItems.findIndex(function(item) {
+
+  window.removeFromCart = function (id) {
+    var index = selectedItems.findIndex(function (item) {
       return item.id === id;
     });
-    
+
     if (index > -1) {
       selectedItems.splice(index, 1);
-      document.querySelectorAll('[data-id="' + id + '"]').forEach(function(el) {
+      document.querySelectorAll('[data-id="' + id + '"]').forEach(function (el) {
         el.classList.remove('is-selected');
       });
       saveSelections();
       updateCart();
     }
   };
-  
+
   function initCartUI() {
     var toggle = document.getElementById('cartToggle');
     var panel = document.getElementById('cartPanel');
     var closeBtn = document.getElementById('cartClose');
     var clearBtn = document.getElementById('btnClearAll');
     var whatsappBtn = document.getElementById('btnWhatsApp');
-    
+
     if (toggle && panel) {
-      toggle.addEventListener('click', function() {
+      toggle.addEventListener('click', function () {
         var isOpen = panel.classList.contains('is-open');
         panel.classList.toggle('is-open');
         toggle.setAttribute('aria-expanded', !isOpen);
       });
     }
-    
+
     if (closeBtn && panel) {
-      closeBtn.addEventListener('click', function() {
+      closeBtn.addEventListener('click', function () {
         panel.classList.remove('is-open');
         if (toggle) toggle.setAttribute('aria-expanded', 'false');
       });
     }
-    
+
     if (clearBtn) {
-      clearBtn.addEventListener('click', function() {
-        selectedItems.forEach(function(item) {
-          document.querySelectorAll('[data-id="' + item.id + '"]').forEach(function(el) {
+      clearBtn.addEventListener('click', function () {
+        selectedItems.forEach(function (item) {
+          document.querySelectorAll('[data-id="' + item.id + '"]').forEach(function (el) {
             el.classList.remove('is-selected');
           });
         });
@@ -809,124 +782,127 @@
         updateCart();
       });
     }
-    
+
     if (whatsappBtn) {
-      whatsappBtn.addEventListener('click', function() {
+      whatsappBtn.addEventListener('click', function () {
         if (selectedItems.length === 0) return;
-        
+
         var msg = 'Hola Aura Apparel,\n\nMe interesan las siguientes piezas:\n\n';
-        selectedItems.forEach(function(item, i) {
-          msg += (i + 1) + '. ' + item.name + ' - ' + item.price + '\n';
+        selectedItems.forEach(function (item, i) {
+          msg += i + 1 + '. ' + item.name + ' - ' + item.price + '\n';
         });
         msg += '\nMe gustaria recibir mas informacion. Gracias!';
-        
+
         var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
         window.open(url, '_blank');
       });
     }
-    
-    // Close cart when clicking outside
-    document.addEventListener('click', function(e) {
+
+    document.addEventListener('click', function (e) {
       if (!panel || !toggle) return;
       if (!panel.contains(e.target) && !toggle.contains(e.target)) {
         panel.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
-    
+
     loadSelections();
   }
-  
-  // Set stagger animation index for grid items
+
   function setGridItemIndices() {
     var items = document.querySelectorAll('.cat-grid-item');
-    items.forEach(function(item, i) {
+    items.forEach(function (item, i) {
       item.style.setProperty('--item-index', i);
     });
   }
 
-  /* ─── ENHANCED SCROLL ANIMATIONS ─── */
   function initEnhancedScrollAnimations() {
     var animatedElements = document.querySelectorAll('.scroll-reveal, .scale-reveal, .slide-left, .slide-right');
     if (!animatedElements.length) return;
-    
+
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      animatedElements.forEach(function(el) {
+      animatedElements.forEach(function (el) {
         el.classList.add('is-visible');
       });
       return;
     }
-    
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          // Add stagger delay based on data attribute or default
-          var delay = entry.target.getAttribute('data-delay') || 0;
-          setTimeout(function() {
-            entry.target.classList.add('is-visible');
-          }, parseInt(delay));
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-    
-    animatedElements.forEach(function(el) {
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var delay = entry.target.getAttribute('data-delay') || 0;
+            setTimeout(function () {
+              entry.target.classList.add('is-visible');
+            }, parseInt(delay));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      },
+    );
+
+    animatedElements.forEach(function (el) {
       observer.observe(el);
     });
   }
 
-  /* ─── PARALLAX SCROLL EFFECTS ─── */
   function initParallaxEffects() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    
+
     var parallaxElements = document.querySelectorAll('[data-parallax]');
     if (!parallaxElements.length) return;
-    
+
     var ticking = false;
-    
+
     function updateParallax() {
       var scrollY = window.scrollY;
       var windowHeight = window.innerHeight;
-      
-      parallaxElements.forEach(function(el) {
+
+      parallaxElements.forEach(function (el) {
         var rect = el.getBoundingClientRect();
         var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
-        
+
         if (rect.top < windowHeight && rect.bottom > 0) {
           var yPos = (scrollY - el.offsetTop + windowHeight) * speed;
           el.style.transform = 'translateY(' + yPos + 'px)';
         }
       });
-      
+
       ticking = false;
     }
-    
-    window.addEventListener('scroll', function() {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }, { passive: true });
+
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
   }
 
-  /* ─── SMOOTH LINK TRANSITIONS ─── */
   function initSmoothPageTransitions() {
-    var links = document.querySelectorAll('a[href^="index"], a[href^="about"], a[href^="catalogo"], a[href^="experiencia"], a[href^="reserva"], a[href^="producto"]');
-    
-    links.forEach(function(link) {
-      link.addEventListener('click', function(e) {
+    var links = document.querySelectorAll(
+      'a[href^="index"], a[href^="about"], a[href^="catalogo"], a[href^="experiencia"], a[href^="reserva"], a[href^="producto"]',
+    );
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function (e) {
         var href = this.getAttribute('href');
         if (!href || href.startsWith('#') || href.startsWith('http')) return;
-        
+
         e.preventDefault();
         document.body.style.opacity = '0';
         document.body.style.transform = 'translateY(-10px)';
         document.body.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-        
-        setTimeout(function() {
+
+        setTimeout(function () {
           window.location.href = href;
         }, 300);
       });
@@ -945,7 +921,6 @@
     if (!wasOpen) item.classList.add('open');
   };
 
-  /* ─── Calendario + Reserva ─── */
   var calYear = 2026;
   var calMonth = 3;
   var selectedDay = null;
@@ -1098,54 +1073,48 @@
   };
 
   function initProductoPage() {
-    var imgEl = document.getElementById('productImg');
-    var nameEl = document.getElementById('productName');
+    var imgEl = document.getElementById('productImg') || document.getElementById('mainProductImg');
+    var nameEl = document.getElementById('productName') || document.getElementById('productTitle');
     var priceEl = document.getElementById('productPrice');
+    var leadEl = document.getElementById('productLead') || document.getElementById('productDescription');
     var catEl = document.getElementById('productCategory');
-    var leadEl = document.getElementById('productLead');
     var highlightsEl = document.getElementById('productHighlights');
     var reserveBtn = document.getElementById('productReserveBtn');
 
-    if (!imgEl || !nameEl || !priceEl || !reserveBtn) return;
+    if (!imgEl || !nameEl || !priceEl) return;
 
     var params = new URLSearchParams(window.location.search || '');
     var id = (params.get('id') || '').trim();
-    var p = id && PRODUCTOS[id] ? PRODUCTOS[id] : null;
+    var p = PRODUCTOS[id];
 
     if (!p) {
-      document.title = 'Aura Apparel — Producto';
       nameEl.textContent = 'Producto no encontrado';
-      priceEl.textContent = '';
-      if (catEl) catEl.textContent = 'Catálogo';
-      if (leadEl) leadEl.textContent = 'Vuelve al catálogo y elige tu pieza favorita.';
       imgEl.src = 'heather.jpg';
-      imgEl.alt = 'Aura Apparel — producto';
-      reserveBtn.textContent = 'Ir a catálogo';
-      reserveBtn.href = 'catalogo.html';
-      if (highlightsEl) highlightsEl.innerHTML = '';
       return;
     }
 
-    document.title = 'Aura Apparel — ' + p.nombre;
-    nameEl.textContent = p.nombre;
-    priceEl.textContent = p.precio || '';
-    if (catEl) catEl.textContent = toTitleCase(p.categoria || 'Colección Aura');
-    if (leadEl) leadEl.textContent = p.lead || leadEl.textContent;
-    imgEl.src = p.img;
-    imgEl.alt = p.nombre;
+    // Llenar datos básicos
+    document.title = 'Aura Apparel — ' + p.title;
+    nameEl.textContent = p.title;
+    priceEl.textContent = p.price;
+    imgEl.src = p.image;
+    if (leadEl) leadEl.textContent = p.description;
+    if (catEl) catEl.textContent = p.category || 'Colección Aura';
 
+    // Renderizar las bolitas de información (Highlights)
     if (highlightsEl) {
       highlightsEl.innerHTML = '';
-      (p.highlights || []).forEach(function (txt) {
+      var items = p.highlights || ['Showroom bajo cita', 'Prueba de fit personalizada', 'Asesoría de imagen'];
+      items.forEach(function (txt) {
         var pill = document.createElement('div');
         pill.className = 'product-pill';
-        pill.innerHTML = '<strong>•</strong><span>' + String(txt) + '</span>';
+        pill.innerHTML = '<strong>•</strong><span>' + txt + '</span>';
         highlightsEl.appendChild(pill);
       });
     }
 
-    var nota = 'Quiero reservar: ' + p.nombre + ' (' + (p.precio || '') + ').';
-    reserveBtn.href = 'reserva.html?producto=' + encodeURIComponent(nota);
+    // ESTO ES LO QUE FALTABA: Verificar si ya estaba seleccionado al cargar
+    checkSelectionStatus(id, p);
   }
 
   function initReservaPrefillFromProducto() {
@@ -1158,7 +1127,6 @@
     notasEl.value = producto;
   }
 
-  /* ─── Experiencia: tabs por click + showroom autoplay ─── */
   function initExperiencia() {
     var triggers = document.querySelectorAll('.exp-trigger');
     var stage = document.getElementById('expStage');
@@ -1290,14 +1258,6 @@
     bindExpPanelTextReveal(panelM);
     bindExpPanelTextReveal(panelMarcas);
 
-    function setTriggerHot(key, on) {
-      triggers.forEach(function (t) {
-        if (t.getAttribute('data-panel') === key) {
-          t.classList.toggle('is-hot', on);
-        }
-      });
-    }
-
     function activate(key) {
       activeKey = key;
       if (panelM) panelM.classList.toggle('is-visible', key === 'manifiesto');
@@ -1418,6 +1378,9 @@
         img.style.objectPosition = focus;
         var logo = (tile.getAttribute('data-logo') || '').trim();
         if (logo) {
+          // --- NUEVO: Glitch Effect en el cambio ---
+          img.classList.add('is-switching');
+          setTimeout(() => img.classList.remove('is-switching'), 400);
           img.src = logo;
         }
         if (capName) capName.textContent = tile.getAttribute('data-marca') || '';
@@ -1448,24 +1411,71 @@
   }
 
   function initSocialLinks() {
-    var wa = 'https://wa.me/' + WHATSAPP_NUMBER;
-    document.querySelectorAll('a[data-social="whatsapp"]').forEach(function (a) {
-      a.href = wa;
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
+    document.querySelectorAll('a[data-social="instagram"]').forEach((a) => {
+      a.href = 'https://www.instagram.com/aura.apparel_ec';
+      a.target = '_blank';
     });
-    document.querySelectorAll('a[data-social="instagram"]').forEach(function (a) {
-      a.href = SOCIAL_INSTAGRAM;
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
+    document.querySelectorAll('a[data-social="whatsapp"]').forEach((a) => {
+      a.href = 'https://wa.me/593962217054';
+      a.target = '_blank';
     });
-    document.querySelectorAll('a[data-social="tiktok"]').forEach(function (a) {
-      a.href = SOCIAL_TIKTOK;
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
+    document.querySelectorAll('a[data-social="tiktok"]').forEach((a) => {
+      a.href = 'https://www.tiktok.com/@aura.vestidoss';
+      a.target = '_blank';
     });
   }
 
+  function initMagneticButtons() {
+    // Solo dejamos el botón del carrito y los botones principales de acción
+    const magnets = document.querySelectorAll('.cart-toggle, .btn-red, .btn-outline, .btn-aura-pill');
+
+    magnets.forEach((btn) => {
+      btn.addEventListener('mousemove', function (e) {
+        const position = btn.getBoundingClientRect();
+        const x = e.pageX - position.left - position.width / 2;
+        const y = e.pageY - position.top - position.height / 2;
+
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.4}px)`;
+        btn.classList.add('magnetic-btn');
+      });
+
+      btn.addEventListener('mouseout', function () {
+        btn.style.transform = 'translate(0px, 0px)';
+        setTimeout(() => btn.classList.remove('magnetic-btn'), 100);
+      });
+    });
+  }
+
+  // Cursor Inmersivo (Totalmente Negro y Sin Glitches)
+  // Cursor Inmersivo (Versión Definitiva Anti-Fallos)
+  // Cursor Inmersivo (Motor de Alto Rendimiento - Cero Glitches)
+
+  // Tilt 3D en Catálogo
+  function initCatalogTilt() {
+    const items = document.querySelectorAll('.cat-grid-item');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    items.forEach((item) => {
+      item.addEventListener('mousemove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const xRot = 10 * ((y - rect.height / 2) / rect.height);
+        const yRot = -10 * ((x - rect.width / 2) / rect.width);
+
+        item.style.transform = `perspective(800px) scale(1.02) rotateX(${xRot}deg) rotateY(${yRot}deg)`;
+        item.style.zIndex = '10';
+      });
+
+      item.addEventListener('mouseleave', () => {
+        item.style.transform = '';
+        item.style.zIndex = '1';
+      });
+    });
+  }
+
+  /* ─── INICIALIZACIÓN ─── */
   document.addEventListener('DOMContentLoaded', function () {
     initSocialLinks();
     initNavbar();
@@ -1473,6 +1483,11 @@
     initEnhancedScrollAnimations();
     initParallaxEffects();
     initSmoothPageTransitions();
+
+    // Solo llamamos las interacciones estables
+    initMagneticButtons();
+    initCatalogTilt();
+
     var page = getPageId();
 
     if (page === 'home') {
@@ -1523,6 +1538,7 @@
       initReservaPrefillFromProducto();
       initReservaSlideshow();
       initFooterParallax();
+      initTypewriter();
     }
 
     if (page === 'producto') {
@@ -1531,4 +1547,94 @@
       initFooterParallax();
     }
   });
+
+  // 1. Array global para guardar lo seleccionado
+  // 1. Array de selección persistente usando LocalStorage
+  // 1. Cargar selección previa del navegador
+  var seleccionGlobal = JSON.parse(localStorage.getItem('aura_selection')) || [];
+
+  window.handleProductSelection = function () {
+    var params = new URLSearchParams(window.location.search);
+    var id = params.get('id');
+    var p = PRODUCTOS[id];
+    if (!p) return;
+
+    var index = seleccionGlobal.findIndex((item) => item.id === id);
+    var btn = document.getElementById('addToSelectionBtn');
+
+    if (index > -1) {
+      seleccionGlobal.splice(index, 1);
+      btn.textContent = 'AÑADIR A MI SELECCIÓN';
+      btn.classList.remove('selected-active');
+    } else {
+      seleccionGlobal.push({ id: id, title: p.title, price: p.price });
+      btn.textContent = '✓ VESTIDO AÑADIDO';
+      btn.classList.add('selected-active');
+    }
+
+    localStorage.setItem('aura_selection', JSON.stringify(seleccionGlobal));
+    updateGlobalReserveLink(p);
+  };
+
+  function updateGlobalReserveLink(currentProduct) {
+    var reserveBtn = document.getElementById('productReserveBtn');
+    if (!reserveBtn) return;
+
+    // Si hay varios seleccionados, el mensaje los suma todos
+    if (seleccionGlobal.length > 0) {
+      var nombres = seleccionGlobal.map((i) => i.title).join(', ');
+      var msg = 'Hola Aura Apparel, quiero una cita para probarme estos vestidos: ' + nombres;
+      reserveBtn.href = 'reserva.html?producto=' + encodeURIComponent(msg);
+
+      if (seleccionGlobal.length > 1) {
+        reserveBtn.textContent = 'RESERVAR CITA (' + seleccionGlobal.length + ' VESTIDOS)';
+      } else {
+        reserveBtn.textContent = 'AGENDAR CITA AHORA';
+      }
+    } else {
+      // Si no hay nada seleccionado, solo reserva el actual
+      var nota = 'Quiero reservar: ' + currentProduct.title + ' (' + currentProduct.price + ').';
+      reserveBtn.href = 'reserva.html?producto=' + encodeURIComponent(nota);
+      reserveBtn.textContent = 'AGENDAR CITA AHORA';
+    }
+  }
+
+  function checkSelectionStatus(id, p) {
+    var btn = document.getElementById('addToSelectionBtn');
+    if (!btn) return;
+
+    if (seleccionGlobal.some((item) => item.id === id)) {
+      btn.textContent = '✓ VESTIDO AÑADIDO';
+      btn.classList.add('selected-active');
+    }
+    updateGlobalReserveLink(p);
+  }
+
+  function initTypewriter() {
+    const textElement = document.getElementById('manifestoText');
+    if (!textElement) return;
+
+    const textToType =
+      'Para sentirte tú, no seguimos tendencias. Elegimos lo que permanece y te hace destacar sin decir una sola palabra.';
+    let index = 0;
+    const speed = 50; // Velocidad en milisegundos
+
+    function type() {
+      if (index < textToType.length) {
+        textElement.innerHTML += textToType.charAt(index);
+        index++;
+        setTimeout(type, speed);
+      } else {
+        // Opcional: Ocultar el cursor al terminar
+        const cursor = document.querySelector('.cursor');
+        if (cursor) cursor.style.display = 'none';
+      }
+    }
+
+    // Iniciar la animación con un pequeño delay para que el usuario ya esté mirando
+    setTimeout(type, 1000);
+  }
+
+  // Asegúrate de llamar a esta función en tu DOMContentLoaded
+  // Dentro de: if (page === 'reserva') { initTypewriter(); ... }
 })();

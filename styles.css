@@ -157,18 +157,24 @@ nav.scrolled .nav-link::after {
   background: var(--white);
 }
 
-/* About (fondo crema): texto negro al inicio */
-body#page-about #navbar:not(.scrolled) .nav-link {
-  color: var(--black);
+/* --- NAVBAR: SIEMPRE NEGRO EN ABOUT --- */
+body#page-about #navbar {
+  background: rgba(10, 10, 10, 1) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(8px) !important;
 }
-body#page-about #navbar:not(.scrolled) .nav-link::after {
-  background: var(--black);
+
+body#page-about #navbar .nav-link {
+  color: var(--white) !important;
 }
-body#page-about #navbar:not(.scrolled) .nav-logo {
-  border-color: var(--black);
+body#page-about #navbar .nav-link::after {
+  background: var(--white) !important;
 }
-body#page-about #navbar:not(.scrolled) .nav-logo span {
-  color: var(--black);
+body#page-about #navbar .nav-logo {
+  border-color: var(--white) !important;
+}
+body#page-about #navbar .nav-logo span {
+  color: var(--white) !important;
 }
 
 .nav-logo {
@@ -501,7 +507,6 @@ body#page-home #navbar:not(.scrolled) {
   transform: scale(1.06);
 }
 
-/* Landing section 2: carrusel automático, sin botones laterales */
 .statement-nav {
   display: none;
 }
@@ -609,7 +614,6 @@ body#page-home #navbar:not(.scrolled) {
   color: rgba(255, 200, 200, 0.9);
 }
 
-/* CTA editorial final (home, mockup) */
 .home-cta-editorial {
   background: var(--cream);
   padding: clamp(72px, 12vw, 120px) 40px;
@@ -771,11 +775,12 @@ body#page-home #navbar:not(.scrolled) {
   margin-top: 12px;
 }
 
+/* ─── ABOUT: TIMELINE ESTILO CARDS ─── */
 .timeline {
   position: relative;
-  max-width: 1000px;
+  max-width: 1140px; /* Más ancho para que las tarjetas respiren */
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
 }
 
 .timeline-line {
@@ -787,15 +792,16 @@ body#page-home #navbar:not(.scrolled) {
   background: var(--red);
   transform: translateX(-50%);
   transition: height 0.05s linear;
+  z-index: 1;
 }
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 1fr 60px 1fr;
-  align-items: start;
-  margin-bottom: 100px;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: center; /* Centra la tarjeta con el punto rojo */
+  margin-bottom: 120px;
   opacity: 0;
-  transform: translateY(48px);
+  transform: translateY(60px);
   transition:
     opacity 0.85s var(--ease-out-expo),
     transform 0.85s var(--ease-out-expo);
@@ -804,36 +810,6 @@ body#page-home #navbar:not(.scrolled) {
 .timeline-item.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.timeline-item.left.visible .tl-content {
-  animation: tlFromLeft 0.9s var(--ease-out-expo) both;
-}
-
-.timeline-item.right.visible .tl-content {
-  animation: tlFromRight 0.9s var(--ease-out-expo) both;
-}
-
-@keyframes tlFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes tlFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 .timeline-item.left .tl-content {
@@ -859,55 +835,133 @@ body#page-home #navbar:not(.scrolled) {
 .tl-dot {
   display: flex;
   justify-content: center;
-  padding-top: 80px;
+  z-index: 2;
 }
 
 .tl-dot-inner {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: var(--red);
-  border: 3px solid var(--cream);
-  box-shadow: 0 0 0 2px var(--red);
+  border: 4px solid var(--cream);
+  box-shadow: 0 0 0 1px var(--red);
+  transition: transform 0.4s var(--ease-out-expo);
 }
 
-.tl-content {
-  padding: 0 32px;
+.timeline-item.visible:hover .tl-dot-inner {
+  transform: scale(1.3);
 }
 
-.tl-img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
+/* Diseño de la Tarjeta */
+.tl-card {
+  background: var(--white);
+  border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 20px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.5s var(--ease-out-expo),
+    box-shadow 0.5s var(--ease-out-expo);
+  will-change: transform;
 }
 
-.timeline-item.right .tl-img {
-  margin-left: auto;
+.tl-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.12);
 }
 
-.tl-img img {
+/* Contenedor grande para la imagen */
+.tl-img-frame {
+  position: relative;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
+  aspect-ratio: 16 / 10; /* Formato panorámico elegante */
+  overflow: hidden;
 }
 
-.tl-content h4 {
+.tl-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out-expo);
+}
+
+.tl-card:hover .tl-img-frame img {
+  transform: scale(1.05);
+}
+
+/* Badge del Año flotando sobre la imagen */
+.tl-year {
+  position: absolute;
+  bottom: 16px;
+  background: var(--white);
+  color: var(--red);
+  font-family: var(--font-display);
+  font-size: 26px;
+  padding: 6px 20px;
+  border-radius: 999px;
+  letter-spacing: 2px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.timeline-item.left .tl-year {
+  right: 16px; /* A la derecha si la tarjeta está a la izquierda */
+}
+
+.timeline-item.right .tl-year {
+  left: 16px; /* A la izquierda si la tarjeta está a la derecha */
+}
+
+/* Área de texto */
+.tl-text {
+  padding: 40px 32px;
+}
+
+.tl-text h4 {
   font-family: var(--font-serif);
-  font-size: 28px;
+  font-size: clamp(26px, 3vw, 34px);
   font-weight: 700;
   color: var(--black);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.tl-content p {
+.tl-text p {
   font-family: var(--font-serif);
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.85;
   color: var(--gray);
+}
+
+/* Responsive para Móviles */
+@media (max-width: 900px) {
+  .timeline-line {
+    left: 24px;
+    transform: none;
+  }
+  .timeline-item {
+    grid-template-columns: 48px 1fr;
+    margin-bottom: 64px;
+    gap: 16px;
+  }
+  .timeline-item.left .tl-content,
+  .timeline-item.right .tl-content {
+    grid-column: 2;
+  }
+  .timeline-item.left .tl-dot,
+  .timeline-item.right .tl-dot {
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+  .timeline-item.left .tl-empty,
+  .timeline-item.right .tl-empty {
+    display: none;
+  }
+  .timeline-item.left .tl-year,
+  .timeline-item.right .tl-year {
+    right: 16px;
+    left: auto; /* En móvil siempre el badge a la derecha */
+  }
 }
 
 .personal-msg {
@@ -1770,7 +1824,7 @@ body#page-home #navbar:not(.scrolled) {
   border-radius: 4px;
 }
 
-/* FAQ en experiencia (respuestas siempre visibles) */
+/* FAQ */
 .faq-list {
   max-width: 720px;
   margin: 0 auto;
@@ -1813,7 +1867,6 @@ body#page-home #navbar:not(.scrolled) {
   line-height: 1.9;
 }
 
-/* Acordeón genérico (si se usa en otro sitio) */
 .faq-item:not(.faq-static) {
   border-bottom: 1px solid var(--gray-light);
   padding: 20px 0;
@@ -1871,7 +1924,7 @@ body#page-home #navbar:not(.scrolled) {
   line-height: 1.85;
 }
 
-/* Marcas — vitrina interactiva */
+/* Marcas */
 .marcas-showcase {
   padding: 12px 0 48px;
   max-width: 1100px;
@@ -2031,7 +2084,7 @@ body#page-home #navbar:not(.scrolled) {
   letter-spacing: 0.06em;
 }
 
-/* Showroom pantalla completa (debajo de nav y menú de experiencia) */
+/* Showroom fullscreen */
 .showroom-fullscreen {
   display: none;
   position: fixed;
@@ -2657,7 +2710,7 @@ body#page-home #navbar:not(.scrolled) {
   letter-spacing: 0.02em;
 }
 
-/* ─── FOOTER (referencia marca: #C33333, tipografía mixta) ─── */
+/* FOOTER */
 footer.site-footer {
   background: #c33333;
   padding: 56px 48px 0;
@@ -2790,7 +2843,7 @@ footer.site-footer {
   opacity: 0.95;
 }
 
-/* ─── ANIMATIONS ─── */
+/* ANIMATIONS */
 .fade-up {
   opacity: 0;
   transform: translateY(36px);
@@ -2808,12 +2861,9 @@ footer.site-footer {
   padding-top: 0;
 }
 
-/* Espacio bajo nav fija en páginas internas */
 body.page-inner #about {
   padding-top: 140px;
 }
-
-/* Catálogo y reserva con barra superior fija */
 body.page-inner #catalogo {
   padding-top: 120px;
 }
@@ -2928,7 +2978,6 @@ img[src=''] {
   min-height: 200px;
 }
 
-/* ─── PAGE TRANSITIONS & ANIMATIONS ─── */
 body {
   animation: pageIn 0.7s var(--ease-out-expo) both;
 }
@@ -2944,11 +2993,12 @@ body {
   }
 }
 
-/* Scroll reveal animation */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
 }
 
 .scroll-reveal.is-visible {
@@ -2956,11 +3006,12 @@ body {
   transform: translateY(0);
 }
 
-/* Scale reveal */
 .scale-reveal {
   opacity: 0;
   transform: scale(0.95);
-  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
 }
 
 .scale-reveal.is-visible {
@@ -2968,11 +3019,12 @@ body {
   transform: scale(1);
 }
 
-/* Slide in from left */
 .slide-left {
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
 }
 
 .slide-left.is-visible {
@@ -2980,11 +3032,12 @@ body {
   transform: translateX(0);
 }
 
-/* Slide in from right */
 .slide-right {
   opacity: 0;
   transform: translateX(30px);
-  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
 }
 
 .slide-right.is-visible {
@@ -2992,7 +3045,6 @@ body {
   transform: translateX(0);
 }
 
-/* Staggered reveal for grid items */
 .cat-grid-item {
   animation: itemReveal 0.7s var(--ease-out-expo) both;
   animation-delay: calc(var(--item-index, 0) * 0.05s);
@@ -3009,7 +3061,6 @@ body {
   }
 }
 
-/* ─── IMPROVED CAROUSEL ─── */
 .cat-carousel {
   position: relative;
   overflow: hidden;
@@ -3074,11 +3125,10 @@ body {
   left: 0;
   right: 0;
   padding: 60px 24px 24px;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
   pointer-events: none;
 }
 
-/* Carousel buttons */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -3121,7 +3171,6 @@ body {
   right: 20px;
 }
 
-/* Carousel dots */
 .carousel-dots {
   position: absolute;
   bottom: 20px;
@@ -3152,7 +3201,6 @@ body {
   transform: scale(1.2);
 }
 
-/* ─── SELECTION BUTTON ─── */
 .select-btn {
   position: absolute;
   top: 12px;
@@ -3192,7 +3240,6 @@ body {
   display: block;
 }
 
-/* Selected state */
 .cat-grid-item.is-selected .select-btn,
 .carousel-slide.is-selected .select-btn {
   opacity: 1;
@@ -3217,7 +3264,6 @@ body {
   outline-offset: -3px;
 }
 
-/* ─── FLOATING SELECTION CART ─── */
 .selection-cart {
   position: fixed;
   bottom: 24px;
@@ -3433,7 +3479,7 @@ body {
   justify-content: center;
   gap: 10px;
   padding: 14px 20px;
-  background: #25D366;
+  background: #25d366;
   border: none;
   border-radius: 999px;
   font-family: var(--font-serif);
@@ -3472,14 +3518,15 @@ body {
   color: var(--red);
 }
 
-/* ─── ENHANCED HOVER EFFECTS ─── */
 .cat-grid-item a {
   display: block;
   height: 100%;
 }
 
 .cat-grid-item img {
-  transition: transform 0.7s var(--ease-out-expo), filter 0.4s ease;
+  transition:
+    transform 0.7s var(--ease-out-expo),
+    filter 0.4s ease;
 }
 
 .cat-grid-item:hover img {
@@ -3488,7 +3535,9 @@ body {
 }
 
 .cat-grid-item .item-hover {
-  transition: opacity 0.4s ease, transform 0.4s var(--ease-out-expo);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s var(--ease-out-expo);
   transform: translateY(10px);
 }
 
@@ -3497,16 +3546,16 @@ body {
   transform: translateY(0);
 }
 
-/* Nav link enhanced hover */
 .nav-link {
-  transition: color 0.3s ease, transform 0.3s var(--ease-out-expo);
+  transition:
+    color 0.3s ease,
+    transform 0.3s var(--ease-out-expo);
 }
 
 .nav-link:hover {
   transform: translateY(-2px);
 }
 
-/* Button micro-interactions */
 .btn-red,
 .btn-outline,
 .btn-product,
@@ -3520,38 +3569,37 @@ body {
   transform: scale(0.97);
 }
 
-/* ─── MOBILE CAROUSEL ─── */
 @media (max-width: 900px) {
   .carousel-track {
     padding: 0 20px;
   }
-  
+
   .carousel-slide {
     flex: 0 0 calc(100% - 40px);
   }
-  
+
   .carousel-slide img {
     height: 65vh;
   }
-  
+
   .carousel-btn {
     opacity: 1;
     width: 44px;
     height: 44px;
   }
-  
+
   .carousel-btn.prev {
     left: 8px;
   }
-  
+
   .carousel-btn.next {
     right: 8px;
   }
-  
+
   .select-btn {
     opacity: 1;
   }
-  
+
   .cart-panel {
     width: calc(100vw - 48px);
     max-width: 340px;
@@ -3563,14 +3611,1391 @@ body {
     bottom: 16px;
     right: 16px;
   }
-  
+
   .cart-toggle {
     width: 54px;
     height: 54px;
   }
-  
+
   .cart-panel {
     right: -8px;
     width: calc(100vw - 32px);
   }
+}
+
+/* =========================================
+   MEJORAS DE INTERACTIVIDAD Y FÍSICAS (Nuevas)
+   ========================================= */
+
+/* 1. Botones Magnéticos */
+.magnetic-btn {
+  transition:
+    transform 0.1s linear,
+    background 0.3s,
+    color 0.3s;
+  will-change: transform;
+}
+
+/* 2. Cursor Personalizado Inmersivo (Versión Game Loop) */
+
+/* Apagamos el cursor nativo con máxima prioridad en TODO elemento */
+body.force-no-cursor,
+body.force-no-cursor * {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #000000 !important;
+  border-radius: 50%;
+
+  /* CRÍTICO: pointer-events none asegura que el clic atraviese el punto negro */
+  pointer-events: none !important;
+  z-index: 9999999 !important;
+
+  /* CRÍTICO: NUNCA poner 'transform' dentro del transition, eso causa los tirones en Mac */
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    opacity 0.2s ease;
+  will-change: transform;
+}
+
+.custom-cursor.is-hovering {
+  width: 50px;
+  height: 50px;
+  opacity: 0.35; /* Semi-transparente para poder leer los botones */
+}
+
+/* 3. Animación Cinemática para Títulos */
+.hero-title h1,
+.hero-title h2 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  animation: textReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) both;
+}
+
+.hero-title h2 {
+  animation-delay: 0.2s;
+}
+
+@keyframes textReveal {
+  from {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    transform: translateY(40px);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateY(0);
+  }
+}
+
+/* 4. Glitch sutil para cambio de imágenes en Marcas */
+@keyframes imageSwitch {
+  0% {
+    filter: brightness(1) contrast(1);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.5) contrast(1.2);
+    transform: scale(1.02);
+  }
+  100% {
+    filter: brightness(1) contrast(1);
+    transform: scale(1);
+  }
+}
+
+.marcas-hero-img.is-switching {
+  animation: imageSwitch 0.4s var(--ease-out-expo);
+}
+/* --- SECCIÓN VIDEO HERO --- */
+.video-hero {
+  position: relative;
+  height: 100vh; /* Ocupa toda la pantalla */
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black); /* Fondo de seguridad mientras carga el video */
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Clave: el video llena el espacio sin estirarse */
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* Ajusta el 0.4 para más o menos oscuridad */
+  z-index: 2;
+}
+
+.video-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--white);
+  padding: 0 20px;
+}
+
+.video-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 10vw, 120px);
+  letter-spacing: 0.1em;
+  line-height: 0.9;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.video-subtitle {
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 2vw, 24px);
+  font-style: italic;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.btn-video-explore {
+  display: inline-block;
+  padding: 16px 48px;
+  border: 1.5px solid var(--white);
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 3px;
+  border-radius: 50px;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.btn-video-explore:hover {
+  background: var(--white);
+  color: var(--black);
+  transform: translateY(-5px);
+}
+
+/* --- CABMIOS ABOUT--- */
+
+/* ─── ABOUT: HERO Y FILOSOFÍA ─── */
+body.page-inner #about-content {
+  padding-top: 80px;
+  background: var(--cream);
+  position: relative;
+}
+
+.about-hero {
+  position: relative;
+  height: 65vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+  z-index: 2;
+}
+
+.about-header {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+.about-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 12vw, 120px);
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.about-header h2 .about-apparel {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: 0.45em;
+  margin-top: 8px;
+  color: var(--white);
+}
+
+.about-header h3 {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+.philosophy-section {
+  max-width: 1200px;
+  margin: 0 auto 120px;
+  padding: 0 40px;
+}
+
+.phil-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.phil-item {
+  text-align: center;
+  padding: 32px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+}
+
+.phil-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: var(--red);
+  opacity: 0.3;
+  display: block;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.phil-item h4 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.phil-item p {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--gray);
+}
+
+@media (max-width: 900px) {
+  .phil-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ─── ABOUT: TIMELINE ANIMADA ─── */
+.timeline {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: var(--red);
+  transform: translateX(-50%);
+  transition: height 0.05s linear;
+  z-index: 1;
+}
+
+/* Animación de entrada de la tarjeta completa */
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: center;
+  margin-bottom: 120px;
+  opacity: 0;
+  transform: translateY(80px) scale(0.95); /* Entra desde abajo y más pequeña */
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.timeline-item.left .tl-content {
+  grid-column: 1;
+}
+.timeline-item.left .tl-dot {
+  grid-column: 2;
+}
+.timeline-item.left .tl-empty {
+  grid-column: 3;
+}
+.timeline-item.right .tl-empty {
+  grid-column: 1;
+}
+.timeline-item.right .tl-dot {
+  grid-column: 2;
+}
+.timeline-item.right .tl-content {
+  grid-column: 3;
+}
+
+.tl-dot {
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+.tl-dot-inner {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 4px solid var(--cream);
+  box-shadow: 0 0 0 1px var(--red);
+  transition: transform 0.4s var(--ease-out-expo);
+}
+.timeline-item.visible:hover .tl-dot-inner {
+  transform: scale(1.3);
+}
+
+.tl-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.5s var(--ease-out-expo),
+    box-shadow 0.5s var(--ease-out-expo);
+}
+
+.tl-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.12);
+}
+
+.tl-img-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.tl-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out-expo);
+}
+.tl-card:hover .tl-img-frame img {
+  transform: scale(1.05);
+}
+
+.tl-year {
+  position: absolute;
+  bottom: 16px;
+  background: var(--white);
+  color: var(--red);
+  font-family: var(--font-display);
+  font-size: 26px;
+  padding: 6px 20px;
+  border-radius: 999px;
+  letter-spacing: 2px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+.timeline-item.left .tl-year {
+  right: 16px;
+}
+.timeline-item.right .tl-year {
+  left: 16px;
+}
+
+.tl-text {
+  padding: 40px 32px;
+}
+.tl-text h4 {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-text p {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--gray);
+}
+
+/* ─── ABOUT: CARTA EDITORIAL (Personal Msg) ─── */
+.personal-msg {
+  max-width: 900px;
+  margin: 100px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  padding: 0 40px;
+}
+.personal-msg img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+}
+.personal-msg-text {
+  position: relative;
+}
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 120px;
+  color: var(--red);
+  opacity: 0.2;
+  position: absolute;
+  top: -60px;
+  left: -30px;
+  line-height: 1;
+}
+.personal-msg-text h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+.personal-msg-text p {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--gray);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+.signature {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-style: italic;
+  color: var(--red);
+  margin-top: 32px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .timeline-line {
+    left: 24px;
+    transform: none;
+  }
+  .timeline-item {
+    grid-template-columns: 48px 1fr;
+    margin-bottom: 64px;
+    gap: 16px;
+  }
+  .timeline-item.left .tl-content,
+  .timeline-item.right .tl-content {
+    grid-column: 2;
+  }
+  .timeline-item.left .tl-dot,
+  .timeline-item.right .tl-dot {
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+  .timeline-item.left .tl-empty,
+  .timeline-item.right .tl-empty {
+    display: none;
+  }
+  .timeline-item.left .tl-year,
+  .timeline-item.right .tl-year {
+    right: 16px;
+    left: auto;
+  }
+  .personal-msg {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+/* =========================================
+   NUEVAS INTERACCIONES Y DISEÑO EN ABOUT
+   ========================================= */
+
+/* 1. Animación Premium para Philosophy Cards */
+.phil-item {
+  /* Aseguramos una transición suave para todos los elementos */
+  transition:
+    transform 0.5s var(--ease-out-expo),
+    box-shadow 0.5s var(--ease-out-expo),
+    background-color 0.4s ease;
+  will-change: transform, box-shadow;
+}
+
+.phil-item:hover {
+  transform: translateY(-10px) scale(1.02); /* Se eleva y crece sutilmente */
+  box-shadow: 0 32px 80px rgba(195, 51, 51, 0.15); /* Sombra roja sutil de la marca */
+  background-color: var(--white);
+}
+
+.phil-num {
+  /* Transición para el número */
+  transition:
+    color 0.4s ease,
+    transform 0.4s var(--ease-out-expo);
+}
+
+.phil-item:hover .phil-num {
+  color: var(--red); /* El número se enciende con el rojo de la marca */
+  opacity: 1; /* Pierde la transparencia */
+  transform: scale(1.1); /* Crece un poco */
+}
+
+/* 2. Diseño del Espacio del Video en la Timeline */
+.tl-video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10; /* Mismo aspect ratio que las imágenes para consistencia */
+  overflow: hidden;
+  background: var(--black); /* Fondo de seguridad */
+
+  /* Un "borde diseñado" que parece que el video flota */
+  border: 1px solid rgba(195, 51, 51, 0.1);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5); /* Brillo interno para dar profundidad */
+}
+
+.tl-video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* El video llena el espacio sin deformarse */
+  object-position: center;
+  transition: transform 1.2s var(--ease-out-expo);
+}
+
+/* Al pasar el ratón por la tarjeta, el video hace un zoom suave */
+.tl-card:hover .tl-video-bg {
+  transform: scale(1.04);
+}
+
+.tl-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2); /* Un tinte muy sutil para mejorar la integración */
+  z-index: 2;
+  pointer-events: none; /* No interfiere con el video */
+}
+
+/* --- ─── NUEVO DISEÑO CATÁLOGO: ESTILO EDITORIAL (DARK MODE) ─── --- */
+
+#page-catalogo,
+#catalogo {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* --- TARJETAS EDITORIALES (BORDE BLANCO SUTIL) --- */
+.card-aura {
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  transition: all 0.4s var(--ease-out-expo);
+  overflow: hidden;
+}
+
+/* IMAGEN OCUPANDO MÁS ESPACIO HACIA ABAJO */
+.card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 6; /* Proporción alargada estilo revista */
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out-expo);
+}
+
+/* EL BOTÓN AHORA ES UN OVERLAY LIMPIO */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn-explorar-overlay {
+  background: #ffffff;
+  color: #000000;
+  padding: 12px 24px;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transform: translateY(15px);
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+/* --- ESTADOS HOVER --- */
+.card-aura:hover .card-overlay {
+  opacity: 1;
+}
+.card-aura:hover .btn-explorar-overlay {
+  transform: translateY(0);
+}
+.card-aura:hover img {
+  transform: scale(1.05);
+}
+.card-aura:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* --- TEXTOS AJUSTADOS (MÍNIMO ESPACIO NEGATIVO) --- */
+.card-footer-simple {
+  padding: 15px 10px;
+  text-align: center;
+}
+
+.card-footer-simple h4 {
+  color: #ffffff;
+  font-size: 14px;
+  margin: 5px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+}
+
+.card-footer-simple .price {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-family: var(--font-display);
+}
+
+.category {
+  color: var(--red);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* --- AJUSTE DE TARJETAS CATÁLOGO --- */
+
+/* --- TARJETA CON OVERLAY INTERACTIVO --- */
+
+.card-aura {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 6; /* Imagen más larga hacia abajo */
+  overflow: hidden;
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* Capa oscura que aparece al hacer hover */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Oscurece sutilmente la foto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Oculto por defecto */
+  transition: all 0.5s ease;
+  backdrop-filter: blur(2px); /* Opcional: desenfoque elegante */
+}
+
+/* El botón que aparece en el centro */
+.btn-explorar-overlay {
+  background: white;
+  color: black;
+  padding: 15px 30px;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transform: translateY(20px); /* Empieza un poco más abajo */
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- ESTADOS HOVER --- */
+
+.card-aura:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-aura:hover .btn-explorar-overlay {
+  transform: translateY(0); /* Sube suavemente a su posición */
+}
+
+.card-aura:hover img {
+  transform: scale(1.08); /* La imagen se expande al fondo */
+}
+
+/* Info debajo de la foto (limpia) */
+.card-footer-simple {
+  padding: 15px 0;
+  text-align: left;
+}
+
+.card-footer-simple h4 {
+  font-size: 14px;
+  margin: 0;
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-footer-simple .price {
+  font-size: 13px;
+  color: var(--gray);
+  display: block;
+  margin-top: 5px;
+}
+
+.card-info-minimal {
+  padding-top: 24px;
+  text-align: left;
+}
+
+.card-info-minimal .category {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gray);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.card-info-minimal h4 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.card-info-minimal .price {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--red);
+}
+
+/* --- CONTROLES DE NAVEGACIÓN --- */
+.carousel-nav-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.nav-arrow {
+  background: none;
+  border: none;
+  font-family: var(--font-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  cursor: pointer;
+  color: var(--black);
+  padding: 10px;
+  transition: opacity 0.3s;
+}
+
+.nav-arrow:hover {
+  color: var(--red);
+}
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background: #ddd;
+}
+
+@media (max-width: 900px) {
+  .carousel-slide {
+    flex: 0 0 80vw;
+  }
+  .catalog-main-title {
+    font-size: 60px;
+  }
+}
+
+/* --- ─── CATALOGO: IMPACTO MASIVO ─── --- */
+
+.catalog-massive-header {
+  padding: 180px 40px 100px; /* Más espacio arriba y abajo */
+  text-align: center;
+  background: #ffffff;
+}
+
+.catalog-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(100px, 20vw, 240px); /* TAMAÑO MASIVO */
+  line-height: 0.75;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  margin-top: 20px;
+}
+
+.catalog-main-title .line-2 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  text-transform: lowercase;
+  color: var(--red);
+  display: block;
+  margin-top: -0.1em;
+  margin-left: 0.2em;
+}
+
+/* Animación de Revelación Cinematográfica */
+.line-1,
+.line-2 {
+  display: block;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  animation: revealFromBottom 1.4s var(--ease-out-expo) both;
+}
+
+.line-2 {
+  animation-delay: 0.2s;
+}
+
+@keyframes revealFromBottom {
+  from {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --- BOTONES DE NAVEGACIÓN LUXURY --- */
+.carousel-nav-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 80px;
+  padding-bottom: 100px;
+}
+
+.nav-arrow-luxury {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  color: var(--black);
+  transition: all 0.4s var(--ease-out-expo);
+  padding: 10px;
+}
+
+.nav-arrow-luxury svg {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.nav-label {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  opacity: 0.4;
+  transition: all 0.4s ease;
+}
+
+/* Hover Effects */
+.nav-arrow-luxury:hover .nav-label {
+  opacity: 1;
+  color: var(--red);
+}
+
+.nav-arrow-luxury:hover svg {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+  transform: scale(1.15);
+}
+
+.nav-arrow-luxury.prev:hover svg {
+  transform: scale(1.15) translateX(-5px);
+}
+.nav-arrow-luxury.next:hover svg {
+  transform: scale(1.15) translateX(5px);
+}
+
+.nav-visual-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Mejora de la Card para incitar compra */
+.card-aura:hover .card-info-minimal h4 {
+  color: var(--red);
+  transform: translateX(5px);
+}
+
+.card-info-minimal h4 {
+  transition: all 0.3s ease;
+}
+
+.card-aura .price {
+  position: relative;
+  display: inline-block;
+}
+
+.card-aura .price::after {
+  content: 'RESERVAR';
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  font-size: 10px;
+  font-family: var(--font-serif);
+  letter-spacing: 2px;
+  color: var(--red);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.card-aura:hover .price::after {
+  opacity: 1;
+  bottom: -15px;
+}
+.catalog-massive-header {
+  position: relative;
+  padding: 220px 40px 140px; /* Aumentamos espacio para que el video luzca */
+  text-align: center;
+  background: var(--black); /* Fondo negro mientras carga el video */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Para que sea de gran tamaño */
+}
+
+/* --- ESTILOS DEL VIDEO DE FONDO --- */
+.header-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.header-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* Capa oscura para que el texto sea legible */
+  z-index: 2;
+}
+
+/* --- AJUSTE DE TEXTO SOBRE VIDEO --- */
+.header-reveal-wrap {
+  position: relative;
+  z-index: 3; /* Por encima del video y el overlay */
+}
+
+.catalog-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(100px, 22vw, 280px); /* Un poco más grande para máximo impacto */
+  color: var(--white); /* Cambiamos a blanco para contrastar con el video */
+  line-height: 0.75;
+  letter-spacing: -0.04em;
+  text-shadow: 0 10px 50px rgba(0, 0, 0, 0.5); /* Sombra para despegar del video */
+}
+
+.catalog-main-title .line-2 {
+  color: var(--red) !important; /* Mantenemos el rojo itálico que te gustó */
+  font-family: var(--font-serif);
+  font-style: italic;
+  text-transform: lowercase;
+}
+
+.catalog-kicker {
+  color: rgba(255, 255, 255, 0.8) !important;
+  letter-spacing: 0.5em;
+}
+
+/* --- ─── SEPARACIÓN Y DISEÑO DE CARDS ─── --- */
+
+/* 1. Separar el Video de las Cards */
+.cat-carousel {
+  padding: 120px 0; /* Añade un espacio generoso arriba y abajo */
+  background: #ffffff;
+}
+
+/* 2. Rediseño de la información de la Card para que "venda" */
+.card-info-minimal {
+  padding: 30px 10px; /* Más espacio para el texto */
+  text-align: center; /* Centrado se ve más premium en catálogos de lujo */
+}
+
+.card-info-minimal .category {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 2px;
+  color: var(--gray);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.card-info-minimal h4 {
+  font-family: var(--font-display); /* Usamos la fuente de impacto */
+  font-size: 32px; /* Mucho más grande y visible */
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+  transition: color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por la card */
+.card-aura:hover h4 {
+  color: var(--red);
+}
+
+.card-info-minimal .price {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--black);
+  display: block;
+  margin-top: 5px;
+}
+
+/* Añadir un botón visual de "Ver Detalles" que aparece al hacer hover */
+.card-img-wrap::after {
+  content: 'EXPLORAR PIEZA';
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--white);
+  color: var(--black);
+  padding: 10px 20px;
+  font-family: var(--font-serif);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: 0;
+  transition: all 0.4s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+.card-aura:hover .card-img-wrap::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Ajuste del Badge para que no se pierda */
+.card-badge {
+  background: var(--red) !important;
+  color: white !important;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  padding: 8px 15px !important;
+  font-size: 10px !important;
+  letter-spacing: 2px;
+}
+.btn-outline-dark {
+  border: 1px solid var(--black);
+  padding: 15px 30px;
+  background: transparent;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.selected-active {
+  background: var(--black);
+  color: var(--white);
+}
+
+.back-to-catalog {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.link-minimal {
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* --- MANIFIESTO RESERVA: DISEÑO MASIVO --- */
+
+.reserva-manifesto {
+  margin-top: 50px;
+  padding-right: 30px;
+  min-height: 200px; /* Evita que el layout salte mientras se escribe */
+}
+
+.manifesto-content {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4vw, 36px); /* Tamaño mucho más grande y responsivo */
+  line-height: 1.3;
+  color: var(--white);
+  font-weight: 300;
+  font-style: italic;
+  margin: 0;
+  display: inline;
+}
+
+.typewriter-container {
+  position: relative;
+}
+
+.cursor {
+  font-size: clamp(24px, 4vw, 36px);
+  color: var(--red);
+  animation: blink 0.8s infinite;
+  margin-left: 5px;
+  font-family: var(--font-serif);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Ajuste para que la columna izquierda tenga más peso visual */
+@media (max-width: 900px) {
+  .reserva-manifesto {
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+.site-footer {
+  background-color: var(--red); /* El rojo de tu marca */
+  padding: 80px 5% 40px;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-row-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+.footer-nav {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 12px;
+}
+
+.footer-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+
+.footer-nav a:hover {
+  opacity: 0.6;
+}
+
+.footer-social-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-rule {
+  width: 100px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin-bottom: 30px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social {
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: all 0.4s ease;
+}
+
+.footer-social:hover {
+  background: var(--white);
+  color: var(--red);
+  transform: translateY(-5px);
+}
+
+.footer-big-wrap {
+  margin: 40px 0;
+}
+
+.footer-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(100px, 25vw, 350px); /* Tamaño masivo */
+  line-height: 0.8;
+  margin: 0;
+  letter-spacing: -5px;
+  opacity: 0.9;
+}
+
+.footer-copy {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .footer-row-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .footer-nav {
+    text-align: center;
+  }
+}
+/* --- TARJETA CON BORDE DEFINIDO --- */
+.carousel-slide {
+  padding: 10px; /* Espacio para que el borde no esté pegado al borde de la pantalla */
+}
+
+.card-aura {
+  display: block;
+  position: relative;
+  background: #ffffff;
+  text-decoration: none;
+
+  /* EL BORDE NEGRO */
+  border: 1.5px solid #000000;
+
+  /* Ajuste de esquinas (opcional, puedes dejarlo en 0 para un look más agresivo) */
+  border-radius: 2px;
+
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+/* Efecto hover para que el borde resalte más o la tarjeta se eleve */
+.card-aura:hover {
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Ajuste para que la imagen respete el borde */
+.card-img-wrap {
+  border-bottom: 1.5px solid #000000; /* Separa la imagen del texto con el mismo borde */
+}
+/* Eliminar rastro de botones de selección antiguos */
+.select-dress-btn {
+  display: none !important;
+}
+
+/* Asegúrate de que el wrapper no tenga padding extra abajo */
+.card-aura-wrapper {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
