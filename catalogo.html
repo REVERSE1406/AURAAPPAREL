@@ -31,377 +31,47 @@
     </a>
 
     <section id="catalogo">
-      <header class="catalog-massive-header">
-        <div class="header-video-bg">
-          <video autoplay muted loop playsinline><source src="tu-video-catalogo.mp4" type="video/mp4" /></video>
+      <header class="catalog-massive-header catalog-hero-landing">
+        <div class="catalog-hero-bg" aria-hidden="true">
+          <div class="hero-grid catalog-hero-grid">
+            <div class="hero-img-wrap">
+              <img src="Images_Catalogo/rafahermosa.png" alt="" />
+            </div>
+            <div class="hero-img-wrap">
+              <img src="modelo1.jpg" alt="" style="object-position: center" />
+            </div>
+            <div class="hero-img-wrap">
+              <img src="modelo3.jpeg" alt="" style="object-position: right center" />
+            </div>
+          </div>
           <div class="header-video-overlay"></div>
         </div>
         <div class="header-reveal-wrap">
           <p class="catalog-kicker fade-up">High End Selection</p>
-          <h1 class="catalog-main-title"><span class="line-1">NUESTRA</span><span class="line-2">COLECCIÓN</span></h1>
+          <h1 class="catalog-main-title"><span class="line-1">COLECCIÓN</span><span class="line-2">2026</span></h1>
         </div>
         <div class="catalog-controls fade-up">
           <div class="view-toggle"></div>
         </div>
       </header>
 
-      <div id="catCarousel" class="cat-carousel active">
-        <div class="carousel-outer">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=verde-esmeralda" class="card-aura">
-                  <div class="card-img-wrap">
-                    <img src="heather.jpg" alt="Vestido Verde" />
-                    <div class="card-badge">NEW</div>
-                  </div>
-                  <div class="card-info-minimal">
-                    <span class="category">Aura Signature</span>
-                    <h4>Verde Esmeralda</h4>
-                    <p class="product-desc">Corte satinado con caída fluida, ideal para gala.</p>
-                    <span class="price">$60</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="verde-esmeralda"
-                  data-name="Verde Esmeralda"
-                  data-price="$60"
-                  data-img="heather.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+      <div class="catalog-showcase-shell">
+        <header class="catalog-collection-head scroll-reveal" aria-labelledby="cat-collection-title">
+          <p class="catalog-collection-eyebrow">Aura Apparel</p>
+          <h2 id="cat-collection-title" class="catalog-collection-title">
+            <span class="catalog-collection-title__word">Nuestra</span>
+            <span class="catalog-collection-title__word catalog-collection-title__word--accent">Coleccion</span>
+          </h2>
+        </header>
 
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=lentejuelas-noir" class="card-aura">
-                  <div class="card-img-wrap"><img src="marlucas.jpg" alt="Conjunto Noir" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Conjuntos</span>
-                    <h4>Lentejuelas Noir</h4>
-                    <p class="product-desc">Brillo sofisticado en dos piezas que definen la silueta.</p>
-                    <span class="price">$75</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="lentejuelas-noir"
-                  data-name="Lentejuelas Noir"
-                  data-price="$75"
-                  data-img="marlucas.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=silver-night" class="card-aura">
-                  <div class="card-img-wrap"><img src="heather5.jpg" alt="Silver Night" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Noche</span>
-                    <h4>Silver Night</h4>
-                    <p class="product-desc">Destellos plateados en un diseño de espalda abierta.</p>
-                    <span class="price">$60</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="silver-night"
-                  data-name="Silver Night"
-                  data-price="$60"
-                  data-img="heather5.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=rose-velvet" class="card-aura">
-                  <div class="card-img-wrap"><img src="modelo1.jpg" alt="Rose Velvet" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Gala</span>
-                    <h4>Rose Velvet</h4>
-                    <p class="product-desc">Textura de terciopelo premium en tono rosa viejo.</p>
-                    <span class="price">$85</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="rose-velvet"
-                  data-name="Rose Velvet"
-                  data-price="$85"
-                  data-img="modelo1.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=midnight-blue" class="card-aura">
-                  <div class="card-img-wrap"><img src="modelo2.jpg" alt="Midnight Blue" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Noche</span>
-                    <h4>Midnight Blue</h4>
-                    <p class="product-desc">Azul profundo en seda natural. Lujo silencioso.</p>
-                    <span class="price">$70</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="midnight-blue"
-                  data-name="Midnight Blue"
-                  data-price="$70"
-                  data-img="modelo2.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=gold-satin" class="card-aura">
-                  <div class="card-img-wrap"><img src="modelo3.jpeg" alt="Gold Satin" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Luxury</span>
-                    <h4>Gold Satin</h4>
-                    <p class="product-desc">Resplandor de oro en un corte sirena escultural.</p>
-                    <span class="price">$95</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="gold-satin"
-                  data-name="Gold Satin"
-                  data-price="$95"
-                  data-img="modelo3.jpeg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=pearl-white" class="card-aura">
-                  <div class="card-img-wrap"><img src="heather3.jpg" alt="Pearl White" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Evento</span>
-                    <h4>Pearl White</h4>
-                    <p class="product-desc">Minimalismo puro. Blanco perlado estructurado.</p>
-                    <span class="price">$65</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="pearl-white"
-                  data-name="Pearl White"
-                  data-price="$65"
-                  data-img="heather3.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=crimson-red" class="card-aura">
-                  <div class="card-img-wrap"><img src="heather.jpg" alt="Crimson Red" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Gala</span>
-                    <h4>Crimson Red</h4>
-                    <p class="product-desc">Rojo carmesí vibrante. Centro de atención.</p>
-                    <span class="price">$80</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="crimson-red"
-                  data-name="Crimson Red"
-                  data-price="$80"
-                  data-img="heather.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=onyx-sparkle" class="card-aura">
-                  <div class="card-img-wrap"><img src="marlucas.jpg" alt="Onyx Sparkle" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Noche</span>
-                    <h4>Onyx Sparkle</h4>
-                    <p class="product-desc">Negro absoluto con micro-cristales estelares.</p>
-                    <span class="price">$75</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="onyx-sparkle"
-                  data-name="Onyx Sparkle"
-                  data-price="$75"
-                  data-img="marlucas.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=champagne-glow" class="card-aura">
-                  <div class="card-img-wrap"><img src="heather5.jpg" alt="Champagne Glow" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Luxury</span>
-                    <h4>Champagne Glow</h4>
-                    <p class="product-desc">Tono champaña con encaje francés exclusivo.</p>
-                    <span class="price">$110</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="champagne-glow"
-                  data-name="Champagne Glow"
-                  data-price="$110"
-                  data-img="heather5.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=violet-dream" class="card-aura">
-                  <div class="card-img-wrap"><img src="modelo1.jpg" alt="Violet Dream" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Evento</span>
-                    <h4>Violet Dream</h4>
-                    <p class="product-desc">Gasa ligera violeta pastel para el día.</p>
-                    <span class="price">$55</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="violet-dream"
-                  data-name="Violet Dream"
-                  data-price="$55"
-                  data-img="modelo1.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=forest-green" class="card-aura">
-                  <div class="card-img-wrap"><img src="modelo2.jpg" alt="Forest Green" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Noche</span>
-                    <h4>Forest Green</h4>
-                    <p class="product-desc">Verde bosque profundo en terciopelo elástico.</p>
-                    <span class="price">$68</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="forest-green"
-                  data-name="Forest Green"
-                  data-price="$68"
-                  data-img="modelo2.jpg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="carousel-slide">
-              <div class="card-aura-wrapper">
-                <a href="producto.html?id=sky-blue-silk" class="card-aura">
-                  <div class="card-img-wrap"><img src="modelo3.jpeg" alt="Sky Blue Silk" /></div>
-                  <div class="card-info-minimal">
-                    <span class="category">Gala</span>
-                    <h4>Sky Blue Silk</h4>
-                    <p class="product-desc">Seda celestial con una cola sutil y dramática.</p>
-                    <span class="price">$90</span>
-                  </div>
-                </a>
-                <button
-                  class="select-dress-btn"
-                  onclick="toggleSelection(this)"
-                  data-id="sky-blue-silk"
-                  data-name="Sky Blue Silk"
-                  data-price="$90"
-                  data-img="modelo3.jpeg"
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-nav-wrap">
-            <button class="nav-arrow-luxury prev" id="carouselPrev">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M19 12H5M12 19l-7-7 7-7" /></svg
-              ><span class="nav-label">PREV</span>
+        <div id="catCarousel" class="cat-carousel active">
+          <div class="carousel-outer catalog-showcase-outer">
+            <button type="button" class="cat-nav-arrow cat-nav-arrow--prev" id="carouselPrev" aria-label="Anterior">
+              <span class="cat-nav-glyph" aria-hidden="true">‹</span>
             </button>
-            <div class="nav-visual-divider"></div>
-            <button class="nav-arrow-luxury next" id="carouselNext">
-              <span class="nav-label">NEXT</span
-              ><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+            <div class="carousel-track" id="carouselTrack"></div>
+            <button type="button" class="cat-nav-arrow cat-nav-arrow--next" id="carouselNext" aria-label="Siguiente">
+              <span class="cat-nav-glyph" aria-hidden="true">›</span>
             </button>
           </div>
         </div>
@@ -416,7 +86,7 @@
           <li><a href="experiencia.html">Experiencia.</a></li>
           <li><a href="catalogo.html">Catálogo.</a></li>
           <li><a href="reserva.html">Reserva.</a></li>
-          <li><a href="#" data-social="whatsapp">Contactanos.</a></li>
+          <li><a href="#" data-social="whatsapp">Contáctanos.</a></li>
         </ul>
 
         <div class="footer-social-column">
@@ -452,6 +122,7 @@
         <p class="footer-big">AURA</p>
       </div>
       <p class="footer-copy">© Aura Apparel EC</p>
+      <div class="footer-edge-line" aria-hidden="true"></div>
     </footer>
     <script src="script.js"></script>
   </body>

@@ -30,14 +30,14 @@
     <section id="landing">
       <div class="hero-grid">
         <div class="hero-img-wrap">
-          <img src="modelo1.jpg" alt="Aura Apparel" />
+          <img src="Images_Catalogo/rafa.png" alt="Aura Apparel" />
           <span class="hero-badge">SHOWROOM</span>
         </div>
         <div class="hero-img-wrap">
           <img src="modelo2.jpg" alt="Aura Apparel" style="object-position: center" />
         </div>
         <div class="hero-img-wrap">
-          <img src="modelo3.jpeg" alt="Aura Apparel" style="object-position: right center" />
+          <img src="Images_Catalogo/modeloInicio.png" alt="Aura Apparel" style="object-position: right center" />
           <span class="hero-badge-tr">SHOWROOM</span>
         </div>
       </div>
@@ -48,19 +48,51 @@
       <div class="scroll-hint"><div></div></div>
     </section>
 
-    <section id="video-statement" class="video-hero">
-      <div class="video-container">
-        <video autoplay muted loop playsinline class="hero-video-bg">
-          <source src="auraAnimacion.mp4" type="video/mp4" />
-          Tu navegador no soporta videos.
-        </video>
-        <div class="video-overlay"></div>
-      </div>
+    <section id="video-statement" class="aura-editorial-section scroll-reveal" aria-labelledby="aura-editorial-heading">
+      <div class="aura-editorial-layout">
+        <div class="aura-editorial-rail aura-editorial-rail--left">
+          <p class="aura-quote slide-left" data-delay="80">Para sentirte tú,</p>
+          <p class="aura-quote aura-quote--end slide-left" data-delay="160">Elegimos lo que permanece.</p>
+        </div>
 
-      <div class="video-content scroll-reveal">
-        <h2 class="video-title">ELEGANCIA EN MOVIMIENTO</h2>
-        <p class="video-subtitle">Descubre la nueva colección Aura Apparel</p>
-        <a href="catalogo.html" class="btn-video-explore">EXPLORAR PIEZAS</a>
+        <div id="auraEditorialCard" class="aura-editorial-card scale-reveal" data-delay="100">
+          <div class="aura-editorial-frame" tabindex="0">
+            <video
+              id="statementHeroVideo"
+              class="aura-editorial-video"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="modelo1.jpg"
+            >
+              <source src="videoAura.mp4" type="video/mp4" />
+            </video>
+            <div class="aura-editorial-vignette" aria-hidden="true"></div>
+
+            <span class="aura-corner aura-corner--tl">AURA APPAREL</span>
+            <span class="aura-corner aura-corner--tr">SHOWROOM BAJO CITA</span>
+            <span class="aura-corner aura-corner--bl">ROPA AMERICANA DE MARCA</span>
+            <span class="aura-corner aura-corner--br">ENVÍOS A TODO ECUADOR</span>
+
+            <div class="aura-editorial-center">
+              <h2 id="aura-editorial-heading" class="aura-editorial-lines">
+                <span>AURA APPAREL</span>
+                <span>TE INVITA A DESCUBRIR</span>
+                <span>UN ESPACIO DONDE</span>
+                <span>EL ESTILO, LA CALIDAD</span>
+                <span>Y LOS DETALLES</span>
+                <span>SE ENCUENTRAN.</span>
+              </h2>
+              <a href="catalogo.html" class="btn-video-explore aura-editorial-btn">EXPLORAR PIEZAS</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="aura-editorial-rail aura-editorial-rail--right">
+          <p class="aura-quote slide-right" data-delay="80">No seguimos tendencias,</p>
+          <p class="aura-quote aura-quote--end slide-right" data-delay="180">y destacar sin decir una palabra.</p>
+        </div>
       </div>
     </section>
 
@@ -72,7 +104,7 @@
           <li><a href="experiencia.html">Experiencia.</a></li>
           <li><a href="catalogo.html">Catálogo.</a></li>
           <li><a href="reserva.html">Reserva.</a></li>
-          <li><a href="#" data-social="whatsapp">Contactanos.</a></li>
+          <li><a href="#" data-social="whatsapp">Contáctanos.</a></li>
         </ul>
         <div class="footer-social-column">
           <div class="footer-rule" aria-hidden="true"></div>
@@ -106,6 +138,7 @@
         <p class="footer-big">AURA</p>
       </div>
       <p class="footer-copy">© Aura Apparel EC</p>
+      <div class="footer-edge-line" aria-hidden="true"></div>
     </footer>
 
     <script src="script.js"></script>

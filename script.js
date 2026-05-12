@@ -34,99 +34,252 @@
       .join(' ');
   }
 
-  var PRODUCTOS = {
-    'verde-esmeralda': {
-      title: 'Verde Esmeralda',
-      price: '$60',
-      image: 'heather.jpg',
-      description: 'Corte satinado con caída fluida, ideal para destacar en eventos de gala nocturnos.',
-      category: 'Vestidos',
-    },
-    'lentejuelas-noir': {
-      title: 'Lentejuelas Noir',
-      price: '$75',
-      image: 'marlucas.jpg',
-      description: 'Brillo sofisticado en dos piezas que definen la silueta con elegancia y audacia.',
-      category: 'Conjuntos',
-    },
-    'silver-night': {
-      title: 'Silver Night',
-      price: '$60',
-      image: 'heather5.jpg',
-      description: 'Destellos plateados en un diseño de espalda abierta para una presencia inolvidable.',
-      category: 'Noche',
-    },
-    'rose-velvet': {
-      title: 'Rose Velvet',
-      price: '$85',
-      image: 'modelo1.jpg',
-      description: 'Textura de terciopelo premium en tono rosa viejo, equilibrio perfecto entre dulce y fatal.',
-      category: 'Gala',
-    },
-    'midnight-blue': {
-      title: 'Midnight Blue',
-      price: '$70',
-      image: 'modelo2.jpg',
-      description: 'Azul profundo en seda natural. Una pieza clásica que exhala lujo silencioso.',
-      category: 'Noche',
-    },
-    'gold-satin': {
-      title: 'Gold Satin',
-      price: '$95',
-      image: 'modelo3.jpeg',
-      description: 'El resplandor del oro en un corte sirena que abraza cada curva con delicadeza.',
-      category: 'Luxury',
-    },
-    'pearl-white': {
-      title: 'Pearl White',
-      price: '$65',
-      image: 'heather3.jpg',
-      description: 'Minimalismo puro. Blanco perlado con escote estructurado para un look pulcro y moderno.',
-      category: 'Evento',
-    },
-    'crimson-red': {
-      title: 'Crimson Red',
-      price: '$80',
-      image: 'heather.jpg',
-      description: 'Rojo carmesí vibrante. Diseñado para ser el centro de atención en cualquier salón.',
-      category: 'Gala',
-    },
-    'onyx-sparkle': {
-      title: 'Onyx Sparkle',
-      price: '$75',
-      image: 'marlucas.jpg',
-      description: 'Negro absoluto con micro-cristales que simulan un cielo estrellado en movimiento.',
-      category: 'Noche',
-    },
-    'champagne-glow': {
-      title: 'Champagne Glow',
-      price: '$110',
-      image: 'heather5.jpg',
-      description: 'Tono champaña con detalles en encaje francés. Exclusividad en cada costura.',
-      category: 'Luxury',
-    },
-    'violet-dream': {
-      title: 'Violet Dream',
-      price: '$55',
-      image: 'modelo1.jpg',
-      description: 'Gasa ligera en tono violeta pastel, ideal para cócteles al aire libre o eventos de día.',
-      category: 'Evento',
-    },
-    'forest-green': {
-      title: 'Forest Green',
-      price: '$68',
-      image: 'modelo2.jpg',
-      description: 'Verde bosque profundo en terciopelo elástico para un ajuste cómodo y escultural.',
-      category: 'Noche',
-    },
-    'sky-blue-silk': {
-      title: 'Sky Blue Silk',
-      price: '$90',
-      image: 'modelo3.jpeg',
-      description: 'Seda celestial con una cola sutil que aporta drama y elegancia a tu caminar.',
-      category: 'Gala',
-    },
-  };
+  /**
+   * Catálogo + ficha producto: edita nombre, imagen, precio, categoría, descripción y tallas.
+   * Los ids se usan en ?id= de producto.html. (Opcional: piezas 14–30 comentadas abajo.)
+   */
+  function vestidoSlot(id, title, price, image, category, description, sizes, images) {
+    var o = {
+      id: id,
+      title: title,
+      price: price,
+      image: image,
+      category: category,
+      description: description,
+      sizes: sizes && sizes.length ? sizes : ['XS', 'S', 'M', 'L'],
+    };
+    if (images && images.length) o.images = images;
+    return o;
+  }
+
+  var VESTIDOS_CATALOGO = [
+    vestidoSlot(
+      'verde-esmeralda',
+      'Verde Esmeralda',
+      '$60',
+      'Images_Catalogo/modeloInicio2.png',
+      'Vestidos',
+      'Corte satinado con caída fluida, ideal para destacar en eventos de gala nocturnos.',
+      ['34', '36', '38', '40'],
+    ),
+    vestidoSlot(
+      'lentejuelas-noir',
+      'Lentejuelas Noir',
+      '$75',
+      'Images_Catalogo/lentejuelas.png',
+      'Conjuntos',
+      'Brillo sofisticado en dos piezas que definen la silueta con elegancia y audacia.',
+      ['XS', 'S', 'M', 'L'],
+    ),
+    vestidoSlot(
+      'silver-night',
+      'Silver Night',
+      '$60',
+      'Images_Catalogo/azulito.png',
+      'Noche',
+      'Destellos plateados en un diseño de espalda abierta para una presencia inolvidable.',
+      ['XS', 'S', 'M', 'L', 'XL'],
+    ),
+    vestidoSlot(
+      'rose-velvet',
+      'Rose Velvet',
+      '$85',
+      'Images_Catalogo/roseVelvet.png',
+      'Gala',
+      'Textura de terciopelo premium en tono rosa viejo, equilibrio perfecto entre dulce y fatal.',
+      ['S', 'M', 'L'],
+    ),
+    vestidoSlot(
+      'midnight-blue',
+      'Midnight Blue',
+      '$70',
+      'Images_Catalogo/midnightBlue.png',
+      'Noche',
+      'Azul profundo en seda natural. Una pieza clásica que exhala lujo silencioso.',
+      ['XS', 'S', 'M', 'L'],
+    ),
+    vestidoSlot(
+      'gold-satin',
+      'Gold Satin',
+      '$95',
+      'Images_Catalogo/gold.png',
+      'Luxury',
+      'El resplandor del oro en un corte sirena que abraza cada curva con delicadeza.',
+      ['S', 'M', 'L', 'XL'],
+    ),
+    vestidoSlot(
+      'pearl-white',
+      'Pearl White',
+      '$65',
+      'Images_Catalogo/white.png',
+      'Evento',
+      'Minimalismo puro. Blanco perlado con escote estructurado para un look pulcro y moderno.',
+      ['XS', 'S', 'M'],
+    ),
+    vestidoSlot(
+      'crimson-red',
+      'Crimson Red',
+      '$80',
+      'Images_Catalogo/crimsonRed.png',
+      'Gala',
+      'Rojo carmesí vibrante. Diseñado para ser el centro de atención en cualquier salón.',
+      ['S', 'M', 'L', 'XL'],
+    ),
+    vestidoSlot(
+      'onyx-sparkle',
+      'Onyx Sparkle',
+      '$75',
+      'Images_Catalogo/onix.png',
+      'Noche',
+      'Negro absoluto con micro-cristales que simulan un cielo estrellado en movimiento.',
+      ['XS', 'S', 'M', 'L'],
+    ),
+    vestidoSlot(
+      'champagne-glow',
+      'Champagne Glow',
+      '$110',
+      'Images_Catalogo/champagne1.png',
+      'Luxury',
+      'Tono champaña con detalles en encaje francés. Exclusividad en cada costura.',
+      ['S', 'M', 'L'],
+    ),
+    vestidoSlot(
+      'violet-dream',
+      'Violet Dream',
+      '$55',
+      'Images_Catalogo/violet.png',
+      'Evento',
+      'Gasa ligera en tono violeta pastel, ideal para cócteles al aire libre o eventos de día.',
+      ['XS', 'S', 'M', 'L'],
+    ),
+    vestidoSlot(
+      'forest-green',
+      'Forest Green',
+      '$68',
+      'Images_Catalogo/verdeEsmeralda.png',
+      'Noche',
+      'Verde bosque profundo en terciopelo elástico para un ajuste cómodo y escultural.',
+      ['S', 'M', 'L', 'XL'],
+    ),
+    vestidoSlot(
+      'sky-blue-silk',
+      'Sky Blue Silk',
+      '$90',
+      'Images_Catalogo/rafahermosa.png',
+      'Gala',
+      'Seda celestial con una cola sutil que aporta drama y elegancia a tu caminar.',
+      ['XS', 'S', 'M', 'L'],
+    ),
+  ];
+
+  /* Piezas showroom 14–30 (placeholders). Descomenta este bloque cuando quieras volver a 30 ítems.
+  (function appendSlots14to30() {
+    var poolImg = [
+      'heather.jpg',
+      'marlucas.jpg',
+      'heather5.jpg',
+      'modelo1.jpg',
+      'modelo2.jpg',
+      'modelo3.jpeg',
+      'heather3.jpg',
+      'heather2.jpg',
+      'heather1.jpg',
+    ];
+    var n0 = VESTIDOS_CATALOGO.length;
+    for (var i = n0; i < 30; i++) {
+      var num = i + 1;
+      var idNum = num < 10 ? '0' + num : String(num);
+      var img = poolImg[i % poolImg.length];
+      VESTIDOS_CATALOGO.push(
+        vestidoSlot(
+          'aura-' + idNum,
+          'Pieza showroom ' + num,
+          '$80',
+          img,
+          'Showroom',
+          'Edita esta entrada en VESTIDOS_CATALOGO (índice ' +
+            i +
+            '): title, price, image, category, description, sizes.',
+          ['XS', 'S', 'M', 'L', 'XL'],
+        ),
+      );
+    }
+  })();
+  */
+
+  var PRODUCTOS = {};
+  VESTIDOS_CATALOGO.forEach(function (v) {
+    PRODUCTOS[v.id] = {
+      title: v.title,
+      price: v.price,
+      image: v.image,
+      description: v.description,
+      category: v.category,
+      sizes: v.sizes,
+      images: v.images && v.images.length ? v.images.slice() : [v.image],
+    };
+  });
+
+  function renderCatalogSlides() {
+    var track = document.getElementById('carouselTrack');
+    if (!track) return;
+
+    track.innerHTML = '';
+    VESTIDOS_CATALOGO.forEach(function (v, idx) {
+      var slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      slide.style.setProperty('--cat-i', String(idx));
+
+      var wrap = document.createElement('div');
+      wrap.className = 'card-aura-wrapper';
+
+      var a = document.createElement('a');
+      a.href = 'producto.html?id=' + encodeURIComponent(v.id);
+      a.className = 'card-aura';
+
+      var imgWrap = document.createElement('div');
+      imgWrap.className = 'card-img-wrap';
+      var img = document.createElement('img');
+      img.src = v.image;
+      img.alt = v.title;
+      img.loading = idx < 5 ? 'eager' : 'lazy';
+      imgWrap.appendChild(img);
+
+      var info = document.createElement('div');
+      info.className = 'card-info-minimal';
+
+      var cat = document.createElement('span');
+      cat.className = 'category';
+      cat.textContent = v.category;
+
+      var h4 = document.createElement('h4');
+      h4.textContent = v.title;
+
+      var desc = document.createElement('p');
+      desc.className = 'product-desc';
+      desc.textContent = v.description;
+
+      var tallas = document.createElement('p');
+      tallas.className = 'card-sizes-line';
+      tallas.textContent = 'Tallas: ' + (v.sizes || []).join(' · ');
+
+      var price = document.createElement('span');
+      price.className = 'price';
+      price.textContent = v.price;
+
+      info.appendChild(cat);
+      info.appendChild(h4);
+      info.appendChild(desc);
+      info.appendChild(tallas);
+      info.appendChild(price);
+
+      a.appendChild(imgWrap);
+      a.appendChild(info);
+      wrap.appendChild(a);
+      slide.appendChild(wrap);
+      track.appendChild(slide);
+    });
+  }
 
   function getPageId() {
     var b = document.body;
@@ -136,50 +289,28 @@
   function initNavbar() {
     var navbar = document.getElementById('navbar');
     if (!navbar) return;
-    window.addEventListener('scroll', function () {
+    function syncScroll() {
       navbar.classList.toggle('scrolled', window.scrollY > 80);
-    });
+    }
+    window.addEventListener('scroll', syncScroll);
+    window.addEventListener('load', syncScroll);
+    syncScroll();
   }
 
   function initExperienciaNavigation() {
-    var nav = document.getElementById('navbar');
-    var landing = document.getElementById('landing');
     var btn = document.getElementById('btnLaExperiencia');
-    if (!nav || !landing) return;
-
-    function syncNav() {
-      var threshold = Math.max(0, landing.offsetHeight - 40);
-      var past = window.scrollY >= threshold;
-      if (past) {
-        nav.classList.add('exp-nav-visible', 'nav-text-only');
-      } else {
-        nav.classList.remove('exp-nav-visible', 'nav-text-only');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = document.getElementById('experiencia');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }
-
-    if (btn) {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        var target = document.getElementById('exp-content');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        nav.classList.add('exp-nav-visible', 'nav-text-only');
-      });
-    }
-
-    window.addEventListener('scroll', syncNav);
-    window.addEventListener('resize', syncNav);
-
-    if (window.location.hash === '#exp-content') {
-      nav.classList.add('exp-nav-visible', 'nav-text-only');
-    }
-    syncNav();
-    window.addEventListener('load', syncNav);
+    });
   }
 
   function initHeroParallax() {
-    var titles = document.querySelectorAll('[data-parallax-title]');
+    var titles = document.querySelectorAll('#page-home [data-parallax-title]');
     if (!titles.length) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var ticking = false;
@@ -249,6 +380,58 @@
     }
 
     window.setInterval(tick, 15000);
+  }
+
+  function initLandingScrollDescend() {
+    var landing = document.getElementById('landing');
+    if (!landing) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var ticking = false;
+    function sync() {
+      landing.classList.toggle('landing--descend', window.scrollY > 40);
+      ticking = false;
+    }
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!ticking) {
+          window.requestAnimationFrame(sync);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
+    sync();
+  }
+
+  function initStatementHeroVideo() {
+    var v = document.getElementById('statementHeroVideo');
+    var card = document.getElementById('auraEditorialCard');
+    if (!v || !card) return;
+
+    function tryPlay() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var p = v.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      v.pause();
+      return;
+    }
+
+    function onCardRevealed() {
+      if (!card.classList.contains('is-visible')) return;
+      tryPlay();
+      if (v.readyState < 2) {
+        v.addEventListener('loadeddata', tryPlay, { once: true });
+      }
+      mo.disconnect();
+    }
+
+    var mo = new MutationObserver(onCardRevealed);
+    mo.observe(card, { attributes: true, attributeFilter: ['class'] });
+    onCardRevealed();
   }
 
   function initStatementCarousel() {
@@ -456,6 +639,14 @@
     var btnG = document.getElementById('btnGrilla');
     var btnC = document.getElementById('btnCarrusel');
 
+    if (!carousel || !btnG || !btnC) return;
+    if (!grid) {
+      carousel.classList.add('active');
+      btnC.classList.add('active');
+      btnG.classList.remove('active');
+      return;
+    }
+
     if (mode === 'grilla') {
       carousel.classList.remove('active');
       grid.classList.add('active');
@@ -483,6 +674,28 @@
     touchEndX: 0,
     isDragging: false,
   };
+
+  function initCatalogShowcaseReveal() {
+    var outer = document.querySelector('#page-catalogo .catalog-showcase-outer');
+    if (!outer) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      outer.classList.add('catalog-carousel-revealed');
+      return;
+    }
+    var fired = false;
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting || fired) return;
+          fired = true;
+          outer.classList.add('catalog-carousel-revealed');
+          io.disconnect();
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -6% 0px' },
+    );
+    io.observe(outer);
+  }
 
   function initImprovedCarousel() {
     var track = document.getElementById('carouselTrack');
@@ -541,6 +754,10 @@
 
     track.addEventListener('mouseenter', stopAutoplay);
     track.addEventListener('mouseleave', startAutoplay);
+
+    window.addEventListener('resize', function () {
+      goToSlide(carouselState.currentIndex);
+    });
   }
 
   function handleTouchStart(e) {
@@ -887,25 +1104,39 @@
     );
   }
 
+  function resetBodyAfterPageTransition() {
+    document.body.style.removeProperty('opacity');
+    document.body.style.removeProperty('transform');
+    document.body.style.removeProperty('transition');
+  }
+
+  /** Rutas HTML internas (evita href^="about" que falla con ./about.html o /about.html). */
+  function isInternalAuraPageHref(href) {
+    if (!href || href.charAt(0) === '#') return false;
+    if (/^(?:https?:|mailto:|tel:)/i.test(href)) return false;
+    var pathOnly = href.split('#')[0].split('?')[0];
+    var file = pathOnly.replace(/^\.\//, '').split('/').pop() || '';
+    return /^(index|about|catalogo|experiencia|reserva|producto)\.html$/i.test(file);
+  }
+
   function initSmoothPageTransitions() {
-    var links = document.querySelectorAll(
-      'a[href^="index"], a[href^="about"], a[href^="catalogo"], a[href^="experiencia"], a[href^="reserva"], a[href^="producto"]',
-    );
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (e.button !== 0) return;
+      var link = e.target.closest('a');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (!isInternalAuraPageHref(href)) return;
 
-    links.forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        var href = this.getAttribute('href');
-        if (!href || href.startsWith('#') || href.startsWith('http')) return;
+      e.preventDefault();
+      document.body.style.opacity = '0';
+      document.body.style.transform = 'translateY(-10px)';
+      document.body.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
 
-        e.preventDefault();
-        document.body.style.opacity = '0';
-        document.body.style.transform = 'translateY(-10px)';
-        document.body.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-
-        setTimeout(function () {
-          window.location.href = href;
-        }, 300);
-      });
+      window.setTimeout(function () {
+        window.location.href = href;
+      }, 300);
     });
   }
 
@@ -1079,7 +1310,9 @@
     var leadEl = document.getElementById('productLead') || document.getElementById('productDescription');
     var catEl = document.getElementById('productCategory');
     var highlightsEl = document.getElementById('productHighlights');
-    var reserveBtn = document.getElementById('productReserveBtn');
+    var sizesEl = document.getElementById('productSizes');
+    var prevImg = document.getElementById('productImgPrev');
+    var nextImg = document.getElementById('productImgNext');
 
     if (!imgEl || !nameEl || !priceEl) return;
 
@@ -1093,15 +1326,31 @@
       return;
     }
 
-    // Llenar datos básicos
+    var imgs = p.images && Array.isArray(p.images) && p.images.length ? p.images.slice() : [p.image || 'heather.jpg'];
+    var gIdx = 0;
+
+    function syncGalleryNav() {
+      var multi = imgs.length > 1;
+      if (prevImg) prevImg.style.display = multi ? '' : 'none';
+      if (nextImg) nextImg.style.display = multi ? '' : 'none';
+    }
+
+    function showGalleryIndex(i) {
+      gIdx = ((i % imgs.length) + imgs.length) % imgs.length;
+      imgEl.src = imgs[gIdx];
+      imgEl.classList.remove('is-img-enter');
+      void imgEl.offsetWidth;
+      imgEl.classList.add('is-img-enter');
+      syncGalleryNav();
+    }
+
     document.title = 'Aura Apparel — ' + p.title;
     nameEl.textContent = p.title;
     priceEl.textContent = p.price;
-    imgEl.src = p.image;
+    showGalleryIndex(0);
     if (leadEl) leadEl.textContent = p.description;
     if (catEl) catEl.textContent = p.category || 'Colección Aura';
 
-    // Renderizar las bolitas de información (Highlights)
     if (highlightsEl) {
       highlightsEl.innerHTML = '';
       var items = p.highlights || ['Showroom bajo cita', 'Prueba de fit personalizada', 'Asesoría de imagen'];
@@ -1113,8 +1362,49 @@
       });
     }
 
-    // ESTO ES LO QUE FALTABA: Verificar si ya estaba seleccionado al cargar
+    if (sizesEl) {
+      sizesEl.innerHTML = '';
+      var label = document.createElement('p');
+      label.className = 'product-sizes-kicker';
+      label.textContent = 'Talla showroom';
+      sizesEl.appendChild(label);
+      var row = document.createElement('div');
+      row.className = 'product-sizes-row';
+      var sizes = p.sizes || ['XS', 'S', 'M', 'L'];
+      sizes.forEach(function (sz, si) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'product-size-btn' + (si === 0 ? ' is-active' : '');
+        b.setAttribute('data-size', sz);
+        b.textContent = sz;
+        b.addEventListener('click', function () {
+          row.querySelectorAll('.product-size-btn').forEach(function (x) {
+            x.classList.remove('is-active');
+          });
+          b.classList.add('is-active');
+          updateGlobalReserveLink(p);
+        });
+        row.appendChild(b);
+      });
+      sizesEl.appendChild(row);
+    }
+
+    if (prevImg) {
+      prevImg.addEventListener('click', function (e) {
+        e.preventDefault();
+        showGalleryIndex(gIdx - 1);
+      });
+    }
+    if (nextImg) {
+      nextImg.addEventListener('click', function (e) {
+        e.preventDefault();
+        showGalleryIndex(gIdx + 1);
+      });
+    }
+
+    syncGalleryNav();
     checkSelectionStatus(id, p);
+    updateGlobalReserveLink(p);
   }
 
   function initReservaPrefillFromProducto() {
@@ -1139,6 +1429,51 @@
     var showroomIdx = 0;
     var slides = showroomFs ? showroomFs.querySelectorAll('.showroom-slide') : [];
     var activeKey = 'manifiesto';
+    var showroomViewportBound = false;
+
+    /** Solo actualiza tamaño útil del viewport (móvil / barra del navegador). No usar offsetTop/Left en position:fixed: al hacer scroll desplazaban el modal fuera de pantalla. */
+    function syncShowroomOverlayBox() {
+      if (!showroomFs || !showroomFs.classList.contains('is-active')) return;
+      var vv = window.visualViewport;
+      var w;
+      var h;
+      if (vv) {
+        w = Math.round(vv.width);
+        h = Math.round(vv.height);
+      } else {
+        w = window.innerWidth;
+        h = window.innerHeight;
+      }
+      w = Math.max(1, w);
+      h = Math.max(1, h);
+      showroomFs.style.setProperty('--showroom-vw', w + 'px');
+      showroomFs.style.setProperty('--showroom-vh', h + 'px');
+    }
+
+    function clearShowroomOverlayBox() {
+      if (!showroomFs) return;
+      showroomFs.style.removeProperty('--showroom-vw');
+      showroomFs.style.removeProperty('--showroom-vh');
+    }
+
+    function bindShowroomViewportListeners() {
+      if (showroomViewportBound || !showroomFs) return;
+      showroomViewportBound = true;
+      window.addEventListener('resize', syncShowroomOverlayBox);
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', syncShowroomOverlayBox);
+      }
+    }
+
+    function unbindShowroomViewportListeners() {
+      if (!showroomViewportBound) return;
+      showroomViewportBound = false;
+      window.removeEventListener('resize', syncShowroomOverlayBox);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', syncShowroomOverlayBox);
+      }
+      clearShowroomOverlayBox();
+    }
 
     function updateShowroomCaption(idx) {
       var line = document.getElementById('showroomCaptionLine');
@@ -1157,6 +1492,10 @@
         s.classList.toggle('is-on', i === showroomIdx);
       });
       updateShowroomCaption(showroomIdx);
+      var dots = document.querySelectorAll('#showroomDots .showroom-dot');
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-on', i === showroomIdx);
+      });
     }
 
     function restartShowroomAutoplay() {
@@ -1167,7 +1506,7 @@
       if (!showroomFs || !showroomFs.classList.contains('is-active')) return;
       showroomTimer = window.setInterval(function () {
         applyShowroomSlide(showroomIdx + 1);
-      }, 2000);
+      }, 4000);
     }
 
     function showroomStep(dir) {
@@ -1180,13 +1519,18 @@
         clearInterval(showroomTimer);
         showroomTimer = null;
       }
+      unbindShowroomViewportListeners();
       if (showroomFs) {
         showroomFs.classList.remove('is-active');
         showroomFs.setAttribute('aria-hidden', 'true');
       }
       document.body.classList.remove('showroom-lock', 'showroom-active');
+      document.documentElement.classList.remove('showroom-lock');
       slides.forEach(function (s) {
         s.classList.remove('is-on');
+      });
+      document.querySelectorAll('#showroomDots .showroom-dot').forEach(function (d, i) {
+        d.classList.toggle('is-on', i === 0);
       });
       var line = document.getElementById('showroomCaptionLine');
       if (line && slides[0]) {
@@ -1196,16 +1540,36 @@
     }
 
     function startShowroom() {
-      if (!showroomFs || !slides.length) return;
+      if (!showroomFs) return;
+      slides = showroomFs.querySelectorAll('.showroom-slide');
+      if (!slides.length) return;
       if (showroomTimer) {
         clearInterval(showroomTimer);
         showroomTimer = null;
       }
+      document.body.style.removeProperty('transform');
+      document.body.style.removeProperty('opacity');
+      document.body.style.removeProperty('transition');
       showroomFs.classList.add('is-active');
       showroomFs.setAttribute('aria-hidden', 'false');
       document.body.classList.add('showroom-lock', 'showroom-active');
+      document.documentElement.classList.add('showroom-lock');
+      bindShowroomViewportListeners();
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          syncShowroomOverlayBox();
+        });
+      });
       applyShowroomSlide(0);
       restartShowroomAutoplay();
+    }
+
+    function closeShowroomUi() {
+      stopShowroom();
+      triggers.forEach(function (t) {
+        t.classList.remove('is-hot');
+      });
+      if (activeKey === 'showroom') activate('manifiesto');
     }
 
     var showroomPrev = document.getElementById('showroomPrev');
@@ -1227,13 +1591,21 @@
     if (showroomClose) {
       showroomClose.addEventListener('click', function (e) {
         e.stopPropagation();
-        stopShowroom();
+        closeShowroomUi();
+      });
+    }
+
+    var showroomBackdrop = document.getElementById('showroomBackdrop');
+    if (showroomBackdrop) {
+      showroomBackdrop.addEventListener('click', function () {
+        closeShowroomUi();
       });
     }
 
     if (showroomFs) {
       var touchStartX = null;
-      showroomFs.addEventListener(
+      var swipeTarget = showroomFs.querySelector('.showroom-atelier-viewport') || showroomFs;
+      swipeTarget.addEventListener(
         'touchstart',
         function (e) {
           if (!showroomFs.classList.contains('is-active')) return;
@@ -1241,7 +1613,7 @@
         },
         { passive: true },
       );
-      showroomFs.addEventListener(
+      swipeTarget.addEventListener(
         'touchend',
         function (e) {
           if (touchStartX == null || !showroomFs.classList.contains('is-active')) return;
@@ -1298,11 +1670,10 @@
         }
       }
       if (e.key === 'Escape') {
-        stopShowroom();
-        triggers.forEach(function (t) {
-          t.classList.remove('is-hot');
-        });
-        if (activeKey === 'showroom') activate('manifiesto');
+        if (showroomFs && showroomFs.classList.contains('is-active')) {
+          e.preventDefault();
+          closeShowroomUi();
+        }
       }
     });
   }
@@ -1426,8 +1797,8 @@
   }
 
   function initMagneticButtons() {
-    // Solo dejamos el botón del carrito y los botones principales de acción
-    const magnets = document.querySelectorAll('.cart-toggle, .btn-red, .btn-outline, .btn-aura-pill');
+    /* Sin .btn-outline: el efecto magnético rompe el layout/animaciones (p. ej. About + fade-up). */
+    const magnets = document.querySelectorAll('.cart-toggle, .btn-aura-pill');
 
     magnets.forEach((btn) => {
       btn.addEventListener('mousemove', function (e) {
@@ -1476,7 +1847,12 @@
   }
 
   /* ─── INICIALIZACIÓN ─── */
+  window.addEventListener('pageshow', function () {
+    resetBodyAfterPageTransition();
+  });
+
   document.addEventListener('DOMContentLoaded', function () {
+    resetBodyAfterPageTransition();
     initSocialLinks();
     initNavbar();
     initTextReveals();
@@ -1491,8 +1867,10 @@
     var page = getPageId();
 
     if (page === 'home') {
+      initLandingScrollDescend();
       initHeroParallax();
       initHeroStagger();
+      initStatementHeroVideo();
       initStatementCarousel();
       initStatementParallax();
       initScrollAnimations();
@@ -1509,6 +1887,8 @@
 
     if (page === 'catalogo') {
       initScrollAnimations();
+      renderCatalogSlides();
+      initCatalogShowcaseReveal();
       initCatalogReveal();
       initCatalogFilters();
       initImprovedCarousel();
@@ -1518,7 +1898,6 @@
     }
 
     if (page === 'experiencia') {
-      initHeroParallax();
       initHeroStagger();
       initExperienciaNavigation();
       initExperiencia();
@@ -1580,7 +1959,11 @@
     var reserveBtn = document.getElementById('productReserveBtn');
     if (!reserveBtn) return;
 
-    // Si hay varios seleccionados, el mensaje los suma todos
+    function activeTallaText() {
+      var active = document.querySelector('#productSizes .product-size-btn.is-active');
+      return active ? ' Talla: ' + active.getAttribute('data-size') + '.' : '';
+    }
+
     if (seleccionGlobal.length > 0) {
       var nombres = seleccionGlobal.map((i) => i.title).join(', ');
       var msg = 'Hola Aura Apparel, quiero una cita para probarme estos vestidos: ' + nombres;
@@ -1592,8 +1975,7 @@
         reserveBtn.textContent = 'AGENDAR CITA AHORA';
       }
     } else {
-      // Si no hay nada seleccionado, solo reserva el actual
-      var nota = 'Quiero reservar: ' + currentProduct.title + ' (' + currentProduct.price + ').';
+      var nota = 'Quiero reservar: ' + currentProduct.title + ' (' + currentProduct.price + ').' + activeTallaText();
       reserveBtn.href = 'reserva.html?producto=' + encodeURIComponent(nota);
       reserveBtn.textContent = 'AGENDAR CITA AHORA';
     }
