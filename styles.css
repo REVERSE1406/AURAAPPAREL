@@ -2109,7 +2109,7 @@ body#page-catalogo #navbar:not(.scrolled) {
 
 .marcas-era-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.52fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.58fr);
   gap: clamp(24px, 4vw, 48px);
   align-items: start;
   contain: layout;
@@ -2131,8 +2131,8 @@ body#page-catalogo #navbar:not(.scrolled) {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  gap: 22px;
-  padding: 16px 0 24px;
+  gap: 18px;
+  padding: 8px 0 8px;
   min-height: 0;
   opacity: 0;
   transition: opacity 0.6s 0.1s var(--ease-out-expo);
@@ -2146,105 +2146,77 @@ body#page-catalogo #navbar:not(.scrolled) {
 
 .marcas-era-side-label {
   font-family: var(--font-serif);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.36em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.38);
-  margin: 0 0 10px;
-  flex-shrink: 0;
-}
-
-.marcas-era-deck {
-  font-family: var(--font-serif);
-  font-size: 14px;
-  line-height: 1.65;
-  color: rgba(0, 0, 0, 0.48);
-  margin: 0 0 22px;
-  max-width: 36ch;
+  color: rgba(0, 0, 0, 0.45);
+  margin: 0 0 4px;
   flex-shrink: 0;
 }
 
 .marcas-rail {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  flex: 0 1 auto;
+  gap: 14px;
+  flex: 1 1 auto;
   min-height: 0;
-  padding-top: 4px;
+  width: 100%;
 }
 
 .marca-tile {
   font-family: var(--font-serif);
-  font-size: clamp(16px, 1.45vw, 19px);
+  font-size: clamp(17px, 1.6vw, 20px);
   font-weight: 600;
-  text-align: left;
-  padding: 20px 24px 20px 28px;
-  min-height: 58px;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: linear-gradient(180deg, #fff 0%, #faf8f5 100%);
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 22px 20px;
+  min-height: 68px;
+  border-radius: 16px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(165deg, #ffffff 0%, #faf7f2 55%, #f3ebe3 100%);
   color: var(--black);
   cursor: pointer;
-  letter-spacing: 0.06em;
-  position: relative;
-  overflow: hidden;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
   flex-shrink: 0;
   transition:
-    border-color 0.35s var(--ease-out-expo),
-    background 0.35s,
-    box-shadow 0.4s var(--ease-out-expo);
-}
-
-.marca-tile::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--red);
-  transform: scaleY(0);
-  transform-origin: center top;
-  transition: transform 0.45s var(--ease-out-expo);
+    border-color 0.3s var(--ease-out-expo),
+    background 0.3s,
+    box-shadow 0.35s var(--ease-out-expo),
+    transform 0.25s var(--ease-out-expo),
+    color 0.25s;
 }
 
 .marca-tile:hover {
-  border-color: rgba(195, 51, 51, 0.4);
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.07),
-    0 0 0 1px rgba(195, 51, 51, 0.12);
+  border-color: rgba(195, 51, 51, 0.45);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.marca-tile:active {
+  transform: translateY(0);
 }
 
 .marca-tile.is-active {
-  border-color: rgba(195, 51, 51, 0.65);
-  background: linear-gradient(180deg, #fff 0%, #fff5f5 100%);
+  border-color: var(--red);
+  background: linear-gradient(165deg, #fffefd 0%, #fff5f4 45%, #fdecea 100%);
   box-shadow:
-    0 16px 40px rgba(195, 51, 51, 0.16),
-    0 0 0 1px rgba(195, 51, 51, 0.2);
-}
-
-.marca-tile.is-active::before {
-  transform: scaleY(1);
+    0 18px 44px rgba(195, 51, 51, 0.18),
+    0 0 0 1px rgba(195, 51, 51, 0.22) inset;
+  color: #1a0a0a;
 }
 
 .marca-tile-muted {
-  font-size: clamp(13px, 2.6vw, 15px);
-  font-weight: 500;
-  color: var(--gray);
-  letter-spacing: 0.03em;
-  min-height: 50px;
-}
-
-.marcas-era-footnote {
-  font-family: var(--font-serif);
-  font-size: 13px;
-  line-height: 1.6;
-  color: rgba(0, 0, 0, 0.42);
-  margin: 10px 0 0;
-  padding-top: 16px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  flex-shrink: 0;
+  font-size: clamp(15px, 1.45vw, 17px);
+  font-weight: 600;
+  color: rgba(26, 26, 26, 0.78);
+  letter-spacing: 0.02em;
+  min-height: 68px;
 }
 
 .marcas-frame {
@@ -2686,6 +2658,13 @@ body#page-catalogo #navbar:not(.scrolled) {
   .marcas-era-visual,
   .marcas-era-side {
     transition: none !important;
+  }
+
+  .marca-tile,
+  .marca-tile:hover,
+  .marca-tile:active {
+    transition: none;
+    transform: none;
   }
 }
 
